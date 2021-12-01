@@ -59,7 +59,7 @@ public class SearchInRotatedSortedArray {
 		if(mid > low && arr[mid] < arr[mid-1]){
 			return mid-1;
 		}
-		//If the element at mid is less than low then elemnts on the left of mid will be greater than mid 
+		//If the element at mid is less than low then elements on the left of mid will be greater than mid 
 		// and we will look for the transition from larger to smaller element in the left region of the mid
 		if(arr[low] >= arr[mid]){
 			return pivotIndex(arr, low, mid-1);
