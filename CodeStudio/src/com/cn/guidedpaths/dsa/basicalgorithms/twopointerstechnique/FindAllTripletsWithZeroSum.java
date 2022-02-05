@@ -22,7 +22,6 @@ public class FindAllTripletsWithZeroSum {
 			while (front < back) {
 
 				int sum = arr.get(front) + arr.get(back);
-
 				if (sum < target) {
 					front++;
 				}
