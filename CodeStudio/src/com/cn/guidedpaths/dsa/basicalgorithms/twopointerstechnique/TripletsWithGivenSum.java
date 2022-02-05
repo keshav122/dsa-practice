@@ -18,13 +18,10 @@ public class TripletsWithGivenSum {
 			int back = n - 1;
 
 			while (front < back) {
-
 				int sum = arr[front] + arr[back];
-
 				if (sum < target) {
 					front++;
 				}
-
 				else if (sum > target) {
 					back--;
 				} else {
@@ -43,11 +40,9 @@ public class TripletsWithGivenSum {
 						set.add(new PairClass(list.get(0), list.get(1), list.get(2)));
 						ans.add(list);
 					}
-
 					while (front < back && arr[front] == (x)) {
 						front++;
 					}
-
 					while (front < back && arr[back] == y) {
 						back--;
 					}
