@@ -22,4 +22,14 @@ public class SingleNumber_136 {
         return -1;
     }
 	
+	
+	//XOR Based Solution
+	public int singleNumber_XOR(int[] nums) {
+       int val = nums[0];
+       for(int i = 1;i < nums.length;i++) {
+    	   val ^= nums[i];
+       }
+       return val;
+    }
+	
 }
