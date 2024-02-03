@@ -19,6 +19,7 @@ public class PalindromeNumber {
 		}
 		
 	}
+	
 
 	private static boolean isPalindrome(int n) {
 		String str = Integer.toString(n);
@@ -33,4 +34,16 @@ public class PalindromeNumber {
 		}
 		return true;
 	}
+	
+	private static boolean isPalindrome_1(int n) {
+		int temp = n;
+		int revNumber = 0;
+		while (n > 0) {
+			int lastDigit = n % 10;
+			n /= 10;
+			revNumber = (revNumber * 10) + lastDigit;
+		}
+		return temp == revNumber;
+	}
+	
 }
