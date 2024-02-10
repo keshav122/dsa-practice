@@ -8,4 +8,14 @@ public class GCD_or_HCF {
 	    }
 	    return calcGCD(m, n % m);
     }
+	
+	public static int calcGCD_Way1(int n, int m){
+		while( n > 0 && m > 0) {
+			if(n > m) n = n %m;
+			else m = m % n;
+		}
+		return (n== 0) ? m : n;
+	}
+	
+	
 }

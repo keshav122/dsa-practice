@@ -37,4 +37,14 @@ public class ArmstrongNumber {
 		return (sum == temp);
 	}
 
+	private static boolean isArmstrongNumber_1(int n) {
+		int temp = n;
+		int digitCount = (int) (Math.log10(n) + 1);
+		long sum = 0;
+		while(n > 0) {
+			sum += Math.pow(n % 10, digitCount);
+			n /= 10;
+		}
+		return (sum == temp);
+	}
 }
