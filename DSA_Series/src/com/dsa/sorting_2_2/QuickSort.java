@@ -6,36 +6,45 @@ package com.dsa.sorting_2_2;
 //Apply it for the left and right subarray
 public class QuickSort {
 
-	public static void quickSort(int[] input,int startIndex, int endIndex) {
-		if(startIndex >= endIndex || startIndex < 0 || endIndex > input.length-1) {
-			return;
+	public static void quickSort(int[] input, int startIndex, int endIndex) {
+		if (startIndex < endIndex) {
+			int partitionIndex = getPartitionIndex(input, startIndex, endIndex);
+			quickSort(input, startIndex, partitionIndex - 1);
+			quickSort(input, partitionIndex + 1, endIndex);
 		}
-		
-		int pivotElement = input[startIndex];
-		int pivotPos = startIndex;
-		int i = startIndex + 1;
-		while(i <= endIndex) {
-			if(input[i] < pivotElement) {
-				int temp = input[i];
-				int count = i-pivotPos;
-				for(int j = i; count > 0; j--,count--) {
-					input[j] = input[j-1];
-				}
-				input[pivotPos] = temp;
-				pivotPos++;
-			}
-			i++;
-		}
-		
-		quickSort(input,startIndex, pivotPos-1);
-		quickSort(input,pivotPos +1 , endIndex);
+
 	}
-	
+
+	private static int getPartitionIndex(int[] input, int startIndex, int endIndex) {
+		int pivotElement = input[startIndex];
+		int i = startIndex;
+		int j = endIndex;
+		while (i < j) {
+
+			while (input[i] <= pivotElement && i <= endIndex - 1) {
+				i++;
+			}
+			while (input[j] > pivotElement && j >= startIndex + 1) {
+				j--;
+			}
+
+			if (i < j) {
+				int temp = input[i];
+				input[i] = input[j];
+				input[j] = temp;
+			}
+		}
+		int temp = input[j];
+		input[j] = input[startIndex];
+		input[startIndex] = temp;
+		return j;
+	}
+
 	public static void main(String[] args) {
-		int[] v = {2, 13 ,4 ,1 ,3, 6 ,28};
-		quickSort(v, 0, v.length-1);
-		for(int i : v) {
-			System.out.print(i+" ");
+		int[] v = { 2, 13, 4, 1, 3, 6, 28 };
+		quickSort(v, 0, v.length - 1);
+		for (int i : v) {
+			System.out.print(i + " ");
 		}
 	}
 }
