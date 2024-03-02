@@ -1,9 +1,7 @@
 package com.dsa.arrays_3_1_easy;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class Merge2SortedArray {
 
@@ -13,7 +11,10 @@ public class Merge2SortedArray {
 		int j = 0;
 		while (i < a.length && j < b.length) {
 			if (a[i] < b[j]) {
-				if(!ans.contains(a[i])) {
+				if(!ans.contains(a[i])) {//Rather than checking the whole list 
+					// you should only check the last element and also take care of the
+					//element at index 0 because there the index-1 will give 
+					//Index out of bound exception
 					ans.add(a[i]);
 				}
 				i++;
