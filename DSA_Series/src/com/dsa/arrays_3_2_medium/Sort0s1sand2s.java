@@ -38,6 +38,35 @@ public class Sort0s1sand2s {
 	      }
     }
 	
+	//Dutch National Flag Algorithm
+	//Elements b/w 0 to low-1 will be 0
+	//Elements b/w low to mid-1 will be 1
+	//Elements b/w high+1 to n-1 will be 2
+	//Elements b/w mid to high will be unsorted 0,1 and 2 and we need to sort them
+
+	public static void sortArray_DNF(ArrayList<Integer> arr, int n) {
+		 int low = 0;
+			int mid = 0;
+			int high = n-1;
+			while(mid <= high) {
+				if(arr.get(mid) == 0) {
+					//swap low & curr index
+					arr.set(mid, arr.get(low));
+					arr.set(low, 0);
+					low++;
+					mid++;
+				}else if(arr.get(mid) == 1) {
+					mid++;
+				}else {
+					//swap high & curr index
+					arr.set(mid, arr.get(high));
+					arr.set(high, 2);
+					high--;
+				}
+			}
+	}
 	
-	
+	public static void main(String[] args) {
+		
+	}
 }

@@ -30,22 +30,43 @@ public class MajorityElement_169 {
 		Arrays.sort(nums);
 		return nums[(0 + nums.length) / 2];
 	}
-	
-	
-	//Moore Voting Algorithm
+
+	// Moore Voting Algorithm
 	public int majorityElement_MooreVotingAlgo(int[] nums) {
 		int candidate = nums[0];
 		int count = 1;
-		for(int i = 1; i < nums.length;i++) {
-			if(count == 0) {
+		for (int i = 1; i < nums.length; i++) {
+			if (count == 0) {
 				candidate = nums[i];
 			}
-			if(nums[i] == candidate) {
+			if (nums[i] == candidate) {
 				count++;
-			}else {
+			} else {
 				count--;
 			}
 		}
-		return candidate;
+
+		// {7,7,5,7,5,1,5,7,5,5,7,7,1,1,1,1}
+		// If you return the candidate here you are returning a wrong value
+		// Because 1 will be returned here but that is not the majority value
+		// The candidate doesn't represents anything
+		//This should be check only if the majority element might not exist
+		//otherwise we could return the candidate here itself
+		int count1 = 0;
+		for (int i = 0; i < nums.length; i++) {
+			if (nums[i] == candidate) {
+				count1++;
+			}
+		}
+		if (count1 >= (nums.length / 2)) {
+			return candidate;
+		}
+		return -1;
+	}
+
+	public static void main(String[] args) {
+		int a[] = { 7, 7, 5, 7, 5, 1, 5, 7, 5, 5, 7, 7, 1, 1, 1, 1 };
+		MajorityElement_169 m = new MajorityElement_169();
+		System.out.println(m.majorityElement_MooreVotingAlgo(a));
 	}
 }
