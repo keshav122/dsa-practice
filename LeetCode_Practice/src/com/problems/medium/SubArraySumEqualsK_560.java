@@ -27,6 +27,7 @@ public class SubArraySumEqualsK_560 {
 		int count = 0;
 		Map<Integer, Integer> sumMap = new HashMap<>();
 		int sum = 0;
+		sumMap.put(0, 1);
 		for (int i = 0; i < nums.length; i++) {
 			sum += nums[i];
 			sumMap.put(sum, i);
@@ -41,7 +42,7 @@ public class SubArraySumEqualsK_560 {
 	
 	public int subarraySum_2(int[] nums, int k) {
 		Map<Integer, Integer> sumfreqMap = new HashMap<>();//This stores the freq of each sum
-		sumfreqMap.put(0, 1);
+		sumfreqMap.put(0, 1);//To check why this is important use test case : {3 , -3, 1,1,1}
 		int sum = 0;
 		int count = 0;
 		for (int i = 0; i < nums.length; i++) {

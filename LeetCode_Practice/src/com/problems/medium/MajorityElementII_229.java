@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class MajorityElementII_229 {
+public class MajorityElementII_229 {  
 
 	public List<Integer> majorityElement_MapI(int[] nums) {
 		int threshold = (int) Math.floor(nums.length / 3);
@@ -40,16 +40,6 @@ public class MajorityElementII_229 {
 				res.add(entry.getKey());
 			}
 		}
-
-		for (int num : nums) {
-			if (map.containsKey(num)) {
-				map.put(num, map.get(num) + 1);
-
-			} else {
-				map.put(num, 1);
-			}
-
-		}
 		return res;
 	}
 
@@ -67,10 +57,10 @@ public class MajorityElementII_229 {
 				count1++;
 			}else if(num == candidate2) {
 				count2++;
-			}else if(count1 == 0) {
+			}else if(count1 == 0 && num != candidate2) {
 				candidate1 = num;
 				count1 = 1;
-			}else if(count2 == 0) {
+			}else if(count2 == 0&& num != candidate1) {
 				candidate2 = num;
 				count2 = 1;
 			}else {
@@ -93,7 +83,7 @@ public class MajorityElementII_229 {
         if(count1 > threshold) {
         	res.add(candidate1);
         }
-        if(count2 > threshold) {
+        if(count2 > threshold && !res.contains(candidate2)) {
         	res.add(candidate2);
         }
 	

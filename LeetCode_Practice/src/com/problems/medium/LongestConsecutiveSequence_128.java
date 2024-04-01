@@ -48,6 +48,32 @@ public class LongestConsecutiveSequence_128 {
 		return res;
 	}
 
+	public int longestConsecutive_Improved1(int[] nums) {
+		int n = nums.length;
+		if (n == 0)
+			return 0;
+
+		int longest = 1;
+		Set<Integer> set = new HashSet<>();
+		for (int i = 0; i < n; i++) {
+			set.add(nums[i]);
+		}
+
+		for (int i : set) {
+			if (!set.contains(i - 1)) {
+				// find consecutive numbers
+				int cnt = 1;
+				int x = i;
+				while (set.contains(x + 1)) {
+					x = x + 1;
+					cnt = cnt + 1;
+				}
+				longest = Math.max(longest, cnt);
+			}
+		}
+		return longest;
+	}
+
 	public static void main(String[] args) {
 		int a[] = { -9, -6, 2, -7, 8, 9, 4, -8, 7, -3 };
 		LongestConsecutiveSequence_128 obj = new LongestConsecutiveSequence_128();
