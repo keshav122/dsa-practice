@@ -17,7 +17,12 @@ public class BubbleSort {
 	}
 	
 	public static void main(String[] args) {
-		int[] v = {3,1};
+		int v[] = new int[1000000];
+		int n = v.length;
+		for(int i = 0; i< n ; i++) {
+			v[i] = n-i;
+		}
+		
 		BubbleSort obj = new BubbleSort();
 		obj.bubbleSort(v);
 		for(int i : v) {

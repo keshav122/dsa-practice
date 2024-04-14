@@ -24,10 +24,29 @@ public class RotateMatrix {
 	       }
 	 }
 	 
+	 //Transpose the matrix and then reverse it
+	 public static void rotateMatrix_Optimal(int [][]mat){
+		   int n = mat.length;
+		   for(int i = 0; i<= n -2 ; i++) {
+			   for(int j = i+1 ; j <= n-1; j++) {
+				   int temp = mat[i][j];
+				   mat[i][j] = mat[j][i];
+				   mat[j][i] = temp;
+			   }
+		   }
+		   
+		   for(int i = 0; i< n ; i++) {
+			   for(int j = 0, k = n-1; j <= k; j++,k--) {
+				   int temp = mat[i][j];
+				   mat[i][j] = mat[i][k];
+				   mat[i][k] = temp;
+			   }
+		   }
+	 }
 	 public static void main(String[] args) {
 		 int [][] matrix = {{1,2,3},{4,5,6},{7,8,9}};
 			
-			rotateMatrix(matrix);
+		 rotateMatrix_Optimal(matrix);
 			int rowLen = matrix.length;
 			int colLen = matrix[0].length;
 			for (int i = 0; i < rowLen; i++) {

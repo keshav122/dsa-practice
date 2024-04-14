@@ -1,5 +1,7 @@
 package com.dsa.arrays_3_2_medium;
 
+import java.util.ArrayList;
+
 public class BestTimeToBuyAndSellStock {
 
 	// 11/12 - REST TLE
@@ -32,6 +34,17 @@ public class BestTimeToBuyAndSellStock {
 		return maxProfit;
 	}
 
+	 public static int maximumProfit(ArrayList<Integer> prices){
+	       int maxProfit = 0;
+			int min = prices.get(0);
+			for (int i = 1; i < prices.size(); i++) {
+				int diff = prices.get(i) - min;
+				maxProfit = Math.max(maxProfit, diff);
+				min = Math.min(min, prices.get(i));//This can be considered as an idea from DP -remembering the past
+			}
+			return maxProfit;
+	    }
+	 
 	public static int bestTimeToBuyAndSellStock_1Improvised(int[] prices) {
 		int maxProfit = 0;
 		int min = prices[0];
