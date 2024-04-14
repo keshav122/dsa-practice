@@ -18,13 +18,11 @@ public class MergeOverlappingIntervals {
 			res.add(li2);
 		}
 		int i = 2;
-		while (i < arr.length - 1) {
+		while (i < arr.length) {
 			List<Integer> temp1 = res.get(res.size() - 1);
 			List<Integer> temp2 = Arrays.asList(arr[i][0], arr[i][1]);
 			if (temp1.get(1) >= temp2.get(0)) {
-				if (res.size() != 0) {
-					res.remove(res.size() - 1);
-				}
+				res.remove(res.size()-1);
 				List<Integer> li = Arrays.asList(temp1.get(0), Math.max(temp1.get(1), temp2.get(1)));
 				res.add(li);
 			} else {
@@ -35,6 +33,22 @@ public class MergeOverlappingIntervals {
 		return res;
 	}
 
+	public static List<List<Integer>> mergeOverlappingIntervals_Clean(int[][] arr) {
+	    int n = arr.length;
+		List<List<Integer>> res = new ArrayList<List<Integer>>();
+		for(int i = 0; i <n; i++) {
+			if(res.isEmpty() || arr[i][0] > res.get(res.size()-1).get(1)) {
+				res.add(Arrays.asList(arr[i][0],arr[i][1]));
+			}else {
+				List<Integer> lastLi = res.get(res.size()-1);
+				int temp = lastLi.get(1);
+				lastLi.set(1, Math.max(temp, arr[i][1]));
+				res.set(res.size()-1,lastLi);
+			}
+	
+		}
+		return res;
+	}
 	public static void main(String[] args) {
 
 		int[][] arr = { { 1, 2 }, { 1, 3 }, { 1, 6 }, { 3, 4 }, { 4, 4 }, { 4, 5 }, { 5, 5 }, { 6, 6 }, { 6, 6 } };
