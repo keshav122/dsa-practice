@@ -1,4 +1,4 @@
-package com.contest.weekly_372;
+package com.contest.weekly.count_372;
 
 public class Swap_Black_and_White {
 
