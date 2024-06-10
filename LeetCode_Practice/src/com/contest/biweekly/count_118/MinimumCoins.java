@@ -1,4 +1,4 @@
-package com.contest.biweekly_118;
+package com.contest.biweekly.count_118;
 
 public class MinimumCoins {
 
