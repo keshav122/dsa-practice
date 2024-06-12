@@ -33,7 +33,6 @@ public class HeightChecker_1051 {
 				maxIndex = i;
 			}
 		}
-		System.out.println(maxIndex);
 		if(maxIndex == 0) {
 			return count + 1;
 		}
