@@ -1,5 +1,7 @@
 package com.problems.medium;
 
+import java.util.ArrayList;
+
 public class SearchA2DMatrix_74 {
 
 	// The most basic Brute Force is to search every element and if you find it
@@ -63,6 +65,41 @@ public class SearchA2DMatrix_74 {
 			if (arr[mid] == target) {
 				return true;
 			} else if (arr[mid] > target) {
+				high = mid - 1;
+			} else {
+				low = mid + 1;
+			}
+		}
+		return false;
+
+	}
+	
+	static boolean searchMatrix(ArrayList<ArrayList<Integer>> mat, int target) {
+		int n = mat.size();
+		int m = mat.get(0).size();
+		int low = 0;
+		int high = n - 1;
+		while (low <= high) {
+			int mid = (low + high) / 2;
+			if (mat.get(mid).get(0) <= target && mat.get(mid).get(m-1)  >= target) {
+				return isTargetPresent(mat.get(mid), target, m);
+			} else if (mat.get(mid).get(m - 1)< target) {
+				low = mid + 1;
+			} else if (mat.get(mid).get(0) > target) {
+				high = mid - 1;
+			}
+		}
+		return false;
+    }
+	
+	private static boolean isTargetPresent(ArrayList<Integer> arr, int target, int n) {
+		int low = 0;
+		int high = n - 1;
+		while (low <= high) {
+			int mid = (low + high) / 2;
+			if (arr.get(mid) == target) {
+				return true;
+			} else if (arr.get(mid) > target) {
 				high = mid - 1;
 			} else {
 				low = mid + 1;
