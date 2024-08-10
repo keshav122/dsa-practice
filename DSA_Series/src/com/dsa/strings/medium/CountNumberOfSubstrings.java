@@ -89,7 +89,7 @@ public class CountNumberOfSubstrings {
 			
 			while(iR < iS) {
 				flag3 = true;
-				if(smallMap.size() == k && bigMap.size() == k+1) {
+				if(smallMap.size() < k && bigMap.size() < k+1) {
 					ans += iL-iS;
 				}
 				iR++;

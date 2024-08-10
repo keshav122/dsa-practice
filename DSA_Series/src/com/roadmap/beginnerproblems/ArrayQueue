@@ -1,0 +1,32 @@
+public class ArrayQueue {
+    int[] queue ;
+    int start;
+    int end;
+    public ArrayQueue() {
+        queue = new int[100];
+        start = end = 0;
+    }
+
+    public void push(int x) {
+       queue[end] = x;
+       end++;
+    }
+
+    public int pop() {
+      if(!isEmpty()){
+        int val = queue[start];
+        start++;
+        return val;
+      }
+    }
+
+    public int peek() {
+        if(!isEmpty()){
+            return queue[start];
+          }
+    }
+
+    public boolean isEmpty() {
+        return (end != 0 && start<= end);
+    }
+}
