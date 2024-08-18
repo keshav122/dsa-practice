@@ -1,0 +1,22 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "compile and run with IO",
+            "type": "shell",
+            "command": "cmd",
+            "args": [
+                "/c",
+                "javac ${file} && java -cp bin ${fileBasenameNoExtension} < input.txt > output.txt"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [
+                "$javac"
+            ],
+            "detail": "Compile and run Java files with input and output redirection"
+        }
+    ]
+}
