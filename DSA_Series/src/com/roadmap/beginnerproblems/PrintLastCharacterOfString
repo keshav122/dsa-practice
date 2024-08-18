@@ -1,8 +1,0 @@
-package com.roadmap.beginnerproblems;
-
-
-public class PrintLastCharacterOfString {
-    public char lastChar(String s) {
-       return s.charAt(s.length()-1);
-    }
-}
