@@ -26,27 +26,15 @@ public class TwoSum {
         int[] ans = new int[2];
         Map<Integer, Integer> elementIndexMap = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {
-            // Special case where same element is present twice and their sum is
-            // equal to the target
-            if (elementIndexMap.containsKey(nums[i]) && target == 2 * nums[i]) {
-                int indexPresent = elementIndexMap.get(nums[i]);
-                ans[0] = Math.min(i, indexPresent);
-                ans[1] = Math.max(i, indexPresent);
+            int val = target - nums[i];
+            if (elementIndexMap.containsKey(val)) {
+                ans[0] = elementIndexMap.get(val);
+                ans[1] = i;
                 return ans;
             } else {
                 elementIndexMap.put(nums[i], i);
             }
         }
-
-        for (Map.Entry<Integer, Integer> entry : elementIndexMap.entrySet()) {
-            if (elementIndexMap.containsKey(target - entry.getKey())) {
-                int key = elementIndexMap.get(target - entry.getKey());
-                ans[0] = Math.min(entry.getValue(), key);
-                ans[1] = Math.max(entry.getValue(), key);
-                return ans;
-            }
-        }
-
         ans[0] = ans[1] = -1;
         return ans;
     }
