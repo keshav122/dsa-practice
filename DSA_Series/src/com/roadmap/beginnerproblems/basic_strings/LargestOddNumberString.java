@@ -1,21 +1,28 @@
 package com.roadmap.beginnerproblems.basic_strings;
 
-//Not working for Large Test Cases
 public class LargestOddNumberString {
+
     public String largeOddNum(String s) {
-        int maxOddValue = Integer.MIN_VALUE;
-        for (int i = 0; i < s.length() - 1; i++) {
-            for (int j = i; j < s.length(); j++) {
-                String subString = s.substring(i, j + 1);
-                int value = Integer.parseInt(subString);
-                if (value % 2 == 1) {
-                    maxOddValue = Math.max(value, maxOddValue);
-                }
+        int n = s.length();
+        int endIndex = n - 1, i = n - 1;
+        while (i >= 0) {
+            char c = s.charAt(i);
+            boolean isOddCharacter = (c == '1' || c == '3' || c == '5' || c == '7' || c == '9');
+            if (isOddCharacter) {
+                endIndex = i;
+                break;
             }
+            i--;
         }
-        if (maxOddValue == Integer.MIN_VALUE) {
-            return "";
+
+        int startIndex = 0, j = 0;
+        while (j <= n - 1) {
+            if (s.charAt(j) != '0') {
+                startIndex = j;
+                break;
+            }
+            j++;
         }
-        return Integer.toString(maxOddValue);
+        return s.substring(startIndex, endIndex + 1);
     }
 }

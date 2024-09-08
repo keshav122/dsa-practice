@@ -3,10 +3,8 @@ package com.dsa.strings.medium;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 public class SortCharactersByFrequency {
 
@@ -35,7 +33,7 @@ public class SortCharactersByFrequency {
 		}
 		return sb.toString();
 	}
-	
+
 	public static void main(String[] args) {
 		String test = "tree";
 		SortCharactersByFrequency obj = new SortCharactersByFrequency();

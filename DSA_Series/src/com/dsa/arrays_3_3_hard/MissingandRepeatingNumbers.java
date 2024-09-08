@@ -98,8 +98,8 @@ public class MissingandRepeatingNumbers {
 			bitNo++;
 		}
 
-//		//The shorter way to generate the bitNumber of the differentiating bit is :
-//		int bitNo = xor & ~(xor-1);//Bit Manipulation trick
+		// //The shorter way to generate the bitNumber of the differentiating bit is :
+		// int bitNo = xor & ~(xor-1);//Bit Manipulation trick
 		int zero = 0;
 		int one = 0;
 
@@ -139,8 +139,7 @@ public class MissingandRepeatingNumbers {
 			return ans;
 		}
 	}
-	
-	
+
 	public static int[] findMissingRepeatingNumbers_optimalXORapproachCleaner(int[] a) {
 		int ans[] = new int[2];
 		int n = a.length;
@@ -149,7 +148,7 @@ public class MissingandRepeatingNumbers {
 			xor ^= a[i];
 			xor ^= (i + 1);
 		}
-		int number = xor & ~(xor-1);//Bit Manipulation trick
+		int number = xor & ~(xor - 1);// Bit Manipulation trick
 		int zero = 0;
 		int one = 0;
 
@@ -191,7 +190,6 @@ public class MissingandRepeatingNumbers {
 	}
 
 	public static void main(String[] args) {
-		int n = 14;
 		int a[] = { 10, 11, 1, 12, 3, 4, 13, 8, 2, 6, 7, 9, 5, 3 };
 		int res[] = findMissingRepeatingNumbers_optimal(a);
 		System.out.println("Missing :" + res[1] + " Repeat : " + res[0]);

@@ -2,36 +2,34 @@ package com.roadmap.beginnerproblems.basic_stacks;
 
 public class ArrayQueue {
   int[] queue;
-  int start;
-  int end;
+
+  int entry; // The index at which a new element can be inserted
+  int release;// The index from where the element can be released
 
   public ArrayQueue() {
     queue = new int[100];
-    start = end = 0;
+    release = entry = queue.length - 1;
   }
 
   public void push(int x) {
-    queue[end] = x;
-    end++;
+    queue[entry] = x;
+    entry--;
   }
 
   public int pop() {
-    if (!isEmpty()) {
-      int val = queue[start];
-      start++;
-      return val;
-    }
-    return -1;
+    int val = queue[release];
+    release--;
+    return val;
   }
 
   public int peek() {
     if (!isEmpty()) {
-      return queue[start];
+      return queue[release];
     }
     return -1;
   }
 
   public boolean isEmpty() {
-    return (end != 0 && start <= end);
+    return (entry == release);
   }
 }
