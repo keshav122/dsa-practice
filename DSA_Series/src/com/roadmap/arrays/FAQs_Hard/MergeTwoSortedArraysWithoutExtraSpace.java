@@ -73,7 +73,6 @@ public class MergeTwoSortedArraysWithoutExtraSpace {
     public static void main(String[] args) {
         int[] arr1 = { -5, -2, 4, 5, 0, 0, 0 };
         int[] arr2 = { -3, 1, 8 };
-        int m = arr1.length;
         int n = arr2.length;
         MergeTwoSortedArraysWithoutExtraSpace obj = new MergeTwoSortedArraysWithoutExtraSpace();
         obj.merge_Optimal1(arr1, 4, arr2, n);
