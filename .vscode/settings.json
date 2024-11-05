@@ -9,5 +9,6 @@
         "jsbeautifyrc",
         "jshintrc",
         "ts"
-    ]
+    ],
+    "java.debug.settings.onBuildFailureProceed": true
 }
