@@ -1,4 +1,4 @@
-package com.roadmap.linkedlist.logic_building;
+package com.roadmap.linkedlist.FAQs_Medium;
 
 public class ListNode {
     int val;
