@@ -2,21 +2,22 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "compile and run with IO",
+            "label": "run-java",
             "type": "shell",
-            "command": "cmd",
+            "command": "cmd.exe",
             "args": [
                 "/c",
-                "javac ${file} && java -cp bin ${fileBasenameNoExtension} < input.txt > output.txt"
+                "javac Basics.java && java Basics < input.txt > output.txt"
             ],
             "group": {
                 "kind": "build",
                 "isDefault": true
             },
-            "problemMatcher": [
-                "$javac"
-            ],
-            "detail": "Compile and run Java files with input and output redirection"
+            "options": {
+                "cwd": "C://k_workspace//dsa-practice//Basics" // Set your working directory here
+            },
+            "problemMatcher": [],
+            "detail": "Compiles and runs Basics.java with input redirection from input.txt and output redirection to output.txt"
         }
     ]
 }
