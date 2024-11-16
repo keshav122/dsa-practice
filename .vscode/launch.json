@@ -1,0 +1,59 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "SearchInA2DMatrixII",
+            "request": "launch",
+            "mainClass": "DSA_Series/com.roadmap.binary_search.TwoDimensionalArrays.SearchInA2DMatrixII",
+            "projectName": "Striver_DSA_Series"
+        },
+        {
+            "type": "java",
+            "name": "SearchInA2DMatrix",
+            "request": "launch",
+            "mainClass": "DSA_Series/com.roadmap.binary_search.TwoDimensionalArrays.SearchInA2DMatrix",
+            "projectName": "Striver_DSA_Series"
+        },
+        {
+            "type": "java",
+            "name": "RowWithMaxOnes",
+            "request": "launch",
+            "mainClass": "DSA_Series/com.roadmap.binary_search.TwoDimensionalArrays.RowWithMaxOnes",
+            "projectName": "Striver_DSA_Series"
+        },
+        {
+            "type": "java",
+            "name": "Basics",
+            "request": "launch",
+            "mainClass": "Basics"
+        },
+        {
+            "type": "java",
+            "name": "MedianOfTwoSortedArrays",
+            "request": "launch",
+            "mainClass": "DSA_Series/com.roadmap.binary_search.FAQs.MedianOfTwoSortedArrays",
+            "projectName": "Striver_DSA_Series"
+        },
+        {
+            "type": "java",
+            "name": "Set",
+            "request": "launch",
+            "mainClass": "Set",
+            "projectName": ""
+        },
+        {
+            "type": "java",
+            "name": "CheckIfLLisPalindrome",
+            "request": "launch",
+            "mainClass": "DSA_Series/com.roadmap.linkedlist.FAQs_Medium.CheckIfLLisPalindrome",
+            "projectName": "Striver_DSA_Series"
+        },
+        {
+            "type": "java",
+            "name": "AddOneToANumberInLL",
+            "request": "launch",
+            "mainClass": "DSA_Series/com.roadmap.linkedlist.FAQs_Medium.AddOneToANumberInLL",
+            "projectName": "Striver_DSA_Series"
+        }
+    ]
+}
