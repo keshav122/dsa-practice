@@ -6,20 +6,18 @@ import java.util.Map;
 public class SumOfBeautyOfAllSubstrings_1781 {
 
 	public int beautySum(String s) {
+		int ans = 0;
 		int n = s.length();
-		int beauty = 0;
 		for (int i = 0; i < n; i++) {
-			int[] charArray = new int[26];
-			int minFreq = 1;
-			int maxFreq = 1;
 			for (int j = i; j < n; j++) {
-				int index = s.charAt(j) - 'a';
-				charArray[index]++;
-				maxFreq = Math.max(maxFreq, charArray[index]);
-				beauty += maxFreq - minFreq;
+				String substring = s.substring(i, j + 1);
+				int beauty = getBeauty(substring);
+				if (beauty != -1) {
+					ans += beauty;
+				}
 			}
 		}
-		return minFreq;
+		return ans;
 	}
 
 	private int getBeauty(String str) {
