@@ -2,6 +2,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "PowerSet",
+            "request": "launch",
+            "mainClass": "DSA_Series/com.roadmap.recursion.implementation_problems.PowerSet",
+            "projectName": "Striver_DSA_Series"
+        },
+        {
+            "type": "java",
+            "name": "PeakElement",
+            "request": "launch",
+            "mainClass": "DSA_Series/com.roadmap.binary_search.TwoDimensionalArrays.PeakElement",
+            "projectName": "Striver_DSA_Series"
+        },
+        {
+            "type": "java",
             "name": "SearchInA2DMatrixII",
             "request": "launch",
             "mainClass": "DSA_Series/com.roadmap.binary_search.TwoDimensionalArrays.SearchInA2DMatrixII",

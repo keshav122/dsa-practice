@@ -22,7 +22,8 @@ public class CheckIfLLisPalindrome {
     }
 
     public boolean isPalindrome2(ListNode head) {
-
+        // TODO Attempt the solution
+        return false;
     }
 
     public static void main(String[] args) {
