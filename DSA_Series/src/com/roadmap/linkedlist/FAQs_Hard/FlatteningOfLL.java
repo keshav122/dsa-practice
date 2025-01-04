@@ -32,6 +32,40 @@ public class FlatteningOfLL {
         return head;
     }
 
+    public ListNode flattenLinkedList(ListNode head) {
+        if (head == null || head.next == null)
+            return head;
+        ListNode smallHead = flattenLinkedList(head.next);
+        head = mergeList(head, smallHead);
+        return head;
+    }
+
+    private ListNode mergeList(ListNode list1, ListNode list2) {
+        ListNode dummyNode = new ListNode(-1);
+        ListNode res = dummyNode;
+        while (list1 != null && list2 != null) {
+            if (list1.val < list2.val) {
+                res.child = list1;
+                res = list1;
+                list1 = list1.child;
+            } else {
+                res.child = list2;
+                res = list2;
+                list2 = list2.child;
+            }
+            res.next = null;
+        }
+        if (list1 != null) {
+            res.child = list1;
+        } else {
+            res.child = list2;
+        }
+        if (dummyNode.child != null) {
+            dummyNode.child.next = null;
+        }
+
+        return dummyNode.child;
+    }
 }
 
 class ListNode {
