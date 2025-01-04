@@ -2,6 +2,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "DetectALoopInLL",
+            "request": "launch",
+            "mainClass": "DSA_Series/com.roadmap.linkedlist.FAQs_Medium.DetectALoopInLL",
+            "projectName": "Striver_DSA_Series"
+        },
+        {
+            "type": "java",
+            "name": "IntersectionPointOfYLL",
+            "request": "launch",
+            "mainClass": "DSA_Series/com.roadmap.linkedlist.FAQs_Medium.IntersectionPointOfYLL",
+            "projectName": "Striver_DSA_Series"
+        },
+        {
+            "type": "java",
+            "name": "CheckIfNAndDoubleExists_1346",
+            "request": "launch",
+            "mainClass": "LeetCode_Parctice/com.problems.easy.CheckIfNAndDoubleExists_1346",
+            "projectName": "LeetCode_Practice"
+        },
+        {
+            "type": "java",
             "name": "PowerSet",
             "request": "launch",
             "mainClass": "DSA_Series/com.roadmap.recursion.implementation_problems.PowerSet",
