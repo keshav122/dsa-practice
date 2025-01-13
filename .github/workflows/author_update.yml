@@ -1,0 +1,31 @@
+name: Update Author Name
+
+on:
+  schedule:
+    - cron: '* * * * *' # Runs every day at 00:00 (midnight)
+
+jobs:
+  update_author_and_commit:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set Author Name
+        run: |
+          git config --local user.name "Keshav Chaudhary"
+          git config --local user.email "keshavchaudhary401@gmail.com"
+
+      - name: Add Author Information to Java Files
+        run: |
+          find . -name "*.java" -type f -exec sed -i '1i\Author: Keshav Chaudhary' {} +
+
+      - name: Add all changes
+        run: git add .
+
+      - name: Commit changes
+        run: git commit -m "Updating Author Info"
+
+      - name: Push changes
+        run: git push origin main
