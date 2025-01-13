@@ -17,15 +17,41 @@ jobs:
           git config --local user.name "Keshav Chaudhary"
           git config --local user.email "keshavchaudhary401@gmail.com"
 
-      - name: Add Author Information to Java Files
+      - name: Find Java Files
+        id: find_java_files
         run: |
-          find . -name "*.java" -type f -exec sed -i '1i\Author: Keshav Chaudhary' {} +
+          find . -name "*.java" -type f | jq -r '.[]' > java_files.txt
 
-      - name: Add all changes
-        run: git add .
+      - name: Iterate Over Java Files
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const fs = require('fs');
+            const core = require('@actions/core');
 
-      - name: Commit changes
-        run: git commit -m "Updating Author Info"
+            const javaFiles = fs.readFileSync('java_files.txt', 'utf-8').split('\n');
 
+            for (const file of javaFiles) {
+              if (file) { 
+                core.startGroup(`Processing ${file}`); 
+                try {
+                  // Update author information for the current file
+                  exec(`sed -i '1i\\Author: Keshav Chaudhary' ${file}`); 
+                  core.info(`Updated author information in ${file}`);
+
+                  // Stage the file for commit
+                  exec(`git add ${file}`);
+
+                  // Commit the single file change
+                  exec(`git commit -m "Updated author information in ${file}"`);
+
+                  core.info(`Committed changes for ${file}`);
+                } catch (error) {
+                  core.setFailed(`Failed to process ${file}: ${error}`);
+                } finally {
+                  core.endGroup();
+                }
+              }
+            }
       - name: Push changes
         run: git push origin main
