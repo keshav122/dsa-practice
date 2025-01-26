@@ -2,7 +2,7 @@ name: Update Author Name
 
 on:
   schedule:
-    - cron: '* * * * *' # Runs every day at 00:00 (midnight)
+    - cron: '0 0 * * *' # Runs every day at 00:00 (midnight)
 
 jobs:
   update_author_and_commit:
