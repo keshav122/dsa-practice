@@ -20,38 +20,16 @@ jobs:
       - name: Find Java Files
         id: find_java_files
         run: |
-          find . -name "*.java" -type f | jq -r '.[]' > java_files.txt
+          find . -name "*.java" -type f > java_files.txt
 
-      - name: Iterate Over Java Files
-        uses: actions/github-script@v6
-        with:
-          script: |
-            const fs = require('fs');
-            const core = require('@actions/core');
+      - name: Update Author in Java Files
+        run: |
+          while IFS= read -r file; do
+            sed -i '1i\\Author: Keshav Chaudhary' "$file"
+          done < java_files.txt
 
-            const javaFiles = fs.readFileSync('java_files.txt', 'utf-8').split('\n');
-
-            for (const file of javaFiles) {
-              if (file) { 
-                core.startGroup(`Processing ${file}`); 
-                try {
-                  // Update author information for the current file
-                  exec(`sed -i '1i\\Author: Keshav Chaudhary' ${file}`); 
-                  core.info(`Updated author information in ${file}`);
-
-                  // Stage the file for commit
-                  exec(`git add ${file}`);
-
-                  // Commit the single file change
-                  exec(`git commit -m "Updated author information in ${file}"`);
-
-                  core.info(`Committed changes for ${file}`);
-                } catch (error) {
-                  core.setFailed(`Failed to process ${file}: ${error}`);
-                } finally {
-                  core.endGroup();
-                }
-              }
-            }
-      - name: Push changes
-        run: git push origin main
+      - name: Commit Changes
+        run: |
+          git add .
+          git commit -m "Updated author information in Java files"
+          git push origin main
