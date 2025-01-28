@@ -10,59 +10,40 @@ public class SchedulingMeetings {
         int n = start.length;
         MeetingData[] meetingData = new MeetingData[n];
         for (int i = 0; i < n; i++) {
-            meetingData[i].setStartTime(start[i]);
-            meetingData[i].setEndTime(end[i]);
-            meetingData[i].setPosition(i);
+            meetingData[i] = new MeetingData(start[i], end[i], i);
         }
+
         Arrays.sort(meetingData, new Comparator<MeetingData>() {
             @Override
             public int compare(MeetingData o1, MeetingData o2) {
-                return Integer.compare(o1.getEndTime(), o2.getEndTime());
+                return Integer.compare(o1.endTime, o2.endTime);
             }
-
         });
 
         int count = 1;
-        int meetingEndTime = meetingData[0].getEndTime();
-        List<Integer> positionArr = new ArrayList<>(meetingData[0].getPosition());
+        int meetingEndTime = meetingData[0].endTime;
+        List<Integer> positionArr = new ArrayList<>(meetingData[0].position);
         for (int i = 1; i < n; i++) {
-            if (meetingData[i].getStartTime() > meetingEndTime) {
+            if (meetingData[i].startTime > meetingEndTime) {
                 count++;
-                positionArr.add(meetingData[i].getPosition());
-                meetingEndTime = meetingData[i].getEndTime();
+                positionArr.add(meetingData[i].position);
+                meetingEndTime = meetingData[i].endTime;
             }
         }
         return count;
-
     }
+
 }
 
 class MeetingData {
-    private int startTime;
-    private int endTime;
-    private int position;
+    int startTime;
+    int endTime;
+    int position;
 
-    public void setStartTime(int startTime) {
+    public MeetingData(int startTime, int endTime, int position) {
         this.startTime = startTime;
-    }
-
-    public void setEndTime(int endTime) {
         this.endTime = endTime;
+        this.position = position;
     }
 
-    public void setPosition(int position) {
-        this.position = startTime;
-    }
-
-    public int getStartTime() {
-        return this.startTime;
-    }
-
-    public int getEndTime() {
-        return this.endTime;
-    }
-
-    public int getPosition() {
-        return this.position;
-    }
 }
