@@ -1,4 +1,4 @@
-package com.roadmap.sliding_window_and_two_pointers.counting_subarrays_substrings_problems;
+package com.roadmap.stacks_and_queues.FAQs;
 
 import java.util.Stack;
 
