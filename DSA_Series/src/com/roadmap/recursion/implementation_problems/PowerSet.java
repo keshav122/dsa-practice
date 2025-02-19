@@ -16,7 +16,7 @@ public class PowerSet {
         if (i == n) {
             // Do not do this (result.add(list)) as the list will be modified during the
             // recursion
-            result.add(new ArrayList(list));
+            result.add(new ArrayList<>(list));
             return;
         }
         list.add(nums[i]);
