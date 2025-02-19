@@ -2,34 +2,48 @@ name: Update Author Name
 
 on:
   schedule:
-    - cron: '0 0 * * *' # Runs every day at 00:00 (midnight)
+    - cron: '0 0 * * *'
 
 jobs:
-  update_author_and_commit:
+  update-author:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-      - name: Set Author Name
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Update author name in one file
         run: |
-          git config --local user.name "Keshav Chaudhary"
-          git config --local user.email "keshavchaudhary401@gmail.com"
+          python update_author.py
 
-      - name: Find Java Files
-        id: find_java_files
+      - name: Configure Git
         run: |
-          find . -name "*.java" -type f > java_files.txt
+          git config user.name "keshav122"
+          git config user.email "keshavchaudhary401@gmail.com"
 
-      - name: Update Author in Java Files
+      - name: Create a new branch
         run: |
-          while IFS= read -r file; do
-            sed -i '1i\\Author: Keshav Chaudhary' "$file"
-          done < java_files.txt
+          BRANCH_NAME="update-author-$(date +%Y%m%d)"
+          git checkout -b $BRANCH_NAME
 
-      - name: Commit Changes
+      - name: Commit changes
         run: |
           git add .
-          git commit -m "Updated author information in Java files"
-          git push origin main
+          git commit -m "Updated author information in one file"
+
+      - name: Push changes to new branch
+        run: |
+          git push origin $BRANCH_NAME
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: $BRANCH_NAME
+          title: "Update author information"
+          body: "This PR updates the author information in one file."
