@@ -1,4 +1,4 @@
-package com.roadmap.stacks_and_queues.implementation;
+package com.roadmap.stacks_and_queues.FAQs;
 
 import java.util.HashMap;
 import java.util.Map;
