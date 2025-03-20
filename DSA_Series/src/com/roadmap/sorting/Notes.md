@@ -1,4 +1,4 @@
-#Sorting
+# Sorting
 
 ## Selection sort :
 Pushes the min to the first
@@ -24,4 +24,14 @@ keep a track whether any swaps are made
 run a inner loop of j from 0 to i-1 => if nums[j] > nums[j+1] swap. set isSwapped to true
 If no swaps are made , break out of the loop
 
+## Insertion Sort 
+Imagine two regions : sorted and unsorted
+Pick one element from unsorted and place it into the sorted region
+Similar to how we would Sort a set of playing cards in our hand. 
 
+approach:
+In each iteration,  select an element from the unsorted part of the array using an outer loop.
+
+place this element in it's correct position within the sorted part of the array. 
+Use an inner loop to shift the remaining elements as necessary to accommodate the seleted element. This involves swapping until.the seleted element is in it's correct position. 
+continue this process until the array is sorted 
