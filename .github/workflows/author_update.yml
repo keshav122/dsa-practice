@@ -38,7 +38,7 @@ jobs:
 
       - name: Push changes to new branch
         run: |
-          git push origin $BRANCH_NAME
+          git push --set-upstream origin $BRANCH_NAME
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4
