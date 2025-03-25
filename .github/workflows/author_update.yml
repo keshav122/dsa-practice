@@ -1,4 +1,4 @@
-gname: Update Author Name
+name: Update Author Name
 
 on:
   schedule:
