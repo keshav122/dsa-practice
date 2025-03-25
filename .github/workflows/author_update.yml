@@ -47,4 +47,25 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: $BRANCH_NAME
           title: "Update author information"
-          body: "This PR updates the author information in one file."
+          body: "This PR updates the author information in one file." 
+          
+      - name: Merge Pull Request
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const pr = await github.pulls.list({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              head: `${context.repo.owner}:${BRANCH_NAME}`,
+            }).then(response => response.data[0]);
+
+            if (pr) {
+              await github.pulls.merge({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                pull_number: pr.number,
+                merge_method: 'merge',
+              });
+            }
