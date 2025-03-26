@@ -12,3 +12,5 @@ public class SellingStock {
 		return ans;
 	}
 }
+
+# Author: keshav122
