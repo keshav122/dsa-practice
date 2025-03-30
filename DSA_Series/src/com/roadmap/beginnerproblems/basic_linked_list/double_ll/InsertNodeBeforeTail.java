@@ -17,3 +17,5 @@ public class InsertNodeBeforeTail {
         return temp;
     }
 }
+
+# Author: keshav122
