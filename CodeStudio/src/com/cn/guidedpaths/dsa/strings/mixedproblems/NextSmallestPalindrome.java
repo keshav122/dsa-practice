@@ -27,3 +27,5 @@ public class NextSmallestPalindrome{
 		return true;
 	}
 }
+
+# Author: keshav122
