@@ -34,3 +34,5 @@ public class MaximumProductSubArrayInArray {
         return max_product;
     }
 }
+
+# Author: keshav122
