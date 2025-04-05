@@ -50,3 +50,5 @@ public class SearchInsertPosition {
 		System.out.println(searchInsert(arr, m));
 	}
 }
+
+# Author: keshav122
