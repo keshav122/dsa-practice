@@ -17,3 +17,5 @@ public class Car {
 	        return "[name= " + this.name + ", Price= " + this.price + ", Power= " + this.power + "]\n";
 	    }
 }
+
+# Author: keshav122
