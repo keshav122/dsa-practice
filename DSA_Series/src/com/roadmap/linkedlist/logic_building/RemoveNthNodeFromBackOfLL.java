@@ -1,7 +1,5 @@
 package com.roadmap.linkedlist.logic_building;
 
-import java.util.List;
-
 public class RemoveNthNodeFromBackOfLL {
     public ListNode removeNthFromEnd_BF(ListNode head, int n) {
         int len = 0;

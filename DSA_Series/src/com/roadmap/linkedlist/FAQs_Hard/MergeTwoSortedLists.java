@@ -1,5 +1,6 @@
 package com.roadmap.linkedlist.FAQs_Hard;
 
+/*# Author: keshav122*/
 public class MergeTwoSortedLists {
     public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
         if (list1 == null)
@@ -72,5 +73,3 @@ public class MergeTwoSortedLists {
         return head.next;
     }
 }
-
-# Author: keshav122

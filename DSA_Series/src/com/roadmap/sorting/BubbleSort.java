@@ -1,5 +1,6 @@
 package com.roadmap.sorting;
 
+/*# Author: keshav122*/
 public class BubbleSort {
     public int[] bubbleSort(int[] nums) {
         int n = nums.length;
@@ -14,7 +15,4 @@ public class BubbleSort {
         }
         return nums;
     }
-
 }
-
-# Author: keshav122

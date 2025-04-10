@@ -1,10 +1,7 @@
 package com.roadmap.hashing.FAQs;
 
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Map;
 import java.util.Set;
 
 public class LongestConsecutiveSequenceInArray {

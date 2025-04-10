@@ -1,15 +1,14 @@
 package com.dsa.arrays_3_1_easy;
 
+/*# Author: keshav122*/
 public class LeftRotateByOnePlace {
 
-	 static int[] rotateArray(int[] arr, int n) {
-	       int temp = arr[0];
-	       for(int i = 1; i < n;i++) {
-	    	   arr[i-1] = arr[i];
-	       }
-           arr[n-1] = temp;
-           return arr;
-	    }
+	static int[] rotateArray(int[] arr, int n) {
+		int temp = arr[0];
+		for (int i = 1; i < n; i++) {
+			arr[i - 1] = arr[i];
+		}
+		arr[n - 1] = temp;
+		return arr;
+	}
 }
-
-# Author: keshav122

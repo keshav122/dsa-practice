@@ -3,6 +3,7 @@ package com.dsa.arrays_3_1_easy;
 import java.util.HashMap;
 import java.util.Map;
 
+/*# Author: keshav122*/
 public class LongestSubarrayWithSumK_Positives {
 
 	// Close to O(n^3)
@@ -34,7 +35,7 @@ public class LongestSubarrayWithSumK_Positives {
 		}
 		return maxLen;
 	}
-	
+
 	public static int longestSubarrayWithSumK(int[] nums, long k) {
 		int maxLen = 1;
 		for (int i = 0; i < nums.length; i++) {
@@ -79,50 +80,48 @@ public class LongestSubarrayWithSumK_Positives {
 		return maxLen;
 
 	}
-	
-	public static int longestSubarrayWithSumK_revision(int []a, long k) {
-		Map<Long,Integer> map = new HashMap<>();
+
+	public static int longestSubarrayWithSumK_revision(int[] a, long k) {
+		Map<Long, Integer> map = new HashMap<>();
 		long sum = 0;
 		int maxLen = 0;
-		for(int i = 0; i< a.length; i++){
+		for (int i = 0; i < a.length; i++) {
 			sum += a[i];
-			if(!map.containsKey(sum)){
-				map.put(sum,i);
+			if (!map.containsKey(sum)) {
+				map.put(sum, i);
 			}
-			
-			if(sum ==k){
-				maxLen = Math.max(maxLen,i+1);
-			}else if(map.size() > 0 &&  map.containsKey(sum-k)){
-				maxLen = Math.max(maxLen,i - map.get(sum-k));
+
+			if (sum == k) {
+				maxLen = Math.max(maxLen, i + 1);
+			} else if (map.size() > 0 && map.containsKey(sum - k)) {
+				maxLen = Math.max(maxLen, i - map.get(sum - k));
 			}
 		}
 		return maxLen;
-    }
+	}
 
-	//Most Optimal - two pointer with shifting if sum > k
-	//Why cannot we initialize  the sum to 0
-	public static int longestSubarrayWithSumK_TwoPointer(int []a, long k) {
-        int left = 0 ,right = 0;
+	// Most Optimal - two pointer with shifting if sum > k
+	// Why cannot we initialize the sum to 0
+	public static int longestSubarrayWithSumK_TwoPointer(int[] a, long k) {
+		int left = 0, right = 0;
 		int maxLen = 0;
 		long sum = a[0];
 		int n = a.length;
-		while(right < n) {
-			while(left <= right && sum > k) {
+		while (right < n) {
+			while (left <= right && sum > k) {
 				sum -= a[left];
 				left++;
 			}
-			
-			if(sum == k) {
-				maxLen = Math.max(maxLen, right-left + 1);
-			
+
+			if (sum == k) {
+				maxLen = Math.max(maxLen, right - left + 1);
+
 			}
 			right++;
-			if(right < n) {
+			if (right < n) {
 				sum += a[right];
 			}
 		}
 		return maxLen;
-    }
+	}
 }
-
-# Author: keshav122

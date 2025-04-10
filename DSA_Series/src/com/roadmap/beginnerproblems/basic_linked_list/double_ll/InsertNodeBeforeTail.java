@@ -1,6 +1,8 @@
 package com.roadmap.beginnerproblems.basic_linked_list.double_ll;
 
+/* # Author: keshav122*/
 public class InsertNodeBeforeTail {
+
     public ListNode insertBeforeTail(ListNode head, int X) {
         if (head.next == null) {
             ListNode newHead = new ListNode(X, head, null);
@@ -17,5 +19,3 @@ public class InsertNodeBeforeTail {
         return temp;
     }
 }
-
-# Author: keshav122
