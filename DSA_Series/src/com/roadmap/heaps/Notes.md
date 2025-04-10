@@ -1,5 +1,21 @@
 ** Priority Queues are one of the most common usages of Heaps. **
 
+A Complete Binary Tree is a binary tree in which all levels are completely filled except possibly the last level, and in the last level, all nodes are as far left as possible.
+
+        1
+      /   \
+     2     3
+    / \   /
+   4   5 6
+
+An ** Almost Complete Binary Tree ** is a binary tree where:
+
+- Every node apart from the nodes in the last and second last level must have exactly 2 children.
+- The leaf nodes must be from left to right.
+
+If the last level is not completely filled, the nodes must be added from left to right without skipping any position.
+
+It is very similar to a Complete Binary Tree, but in some definitions, an Almost Complete Binary Tree allows the last internal node to have only a left child (not necessarily both children).
 # Heap
 
 A **heap** is a special tree-based data structure that satisfies the **heap property**. It is commonly used to efficiently solve problems involving **priority** and to implement algorithms like **sorting** and finding the **smallest or largest elements**.
