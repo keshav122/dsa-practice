@@ -2,7 +2,6 @@ package com.roadmap.binary_search.logic_building;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 //Its basically is finding the min value .. because the min value is 
