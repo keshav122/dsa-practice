@@ -1,5 +1,6 @@
 package com.dsa.arrays_3_1_easy;
 
+/*# Author: keshav122*/
 public class FirstMissingPositive {
 
 	public static int firstMissing(int[] arr, int n) {
@@ -54,9 +55,6 @@ public class FirstMissingPositive {
 	// 7 8 9 11 12
 
 	public static void main(String[] args) {
-		int arr1[] = { 3, 4, -1, 1 };
 
 	}
 }
-
-# Author: keshav122

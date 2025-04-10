@@ -1,5 +1,6 @@
 package com.dsa.binary_search._4_2.answers;
 
+/*# Author: keshav122*/
 public class FindSqRootInLogN {
 
 	public static int sqrtN(long N) {
@@ -68,5 +69,3 @@ public class FindSqRootInLogN {
 		return (int) high;
 	}
 }
-
-# Author: keshav122

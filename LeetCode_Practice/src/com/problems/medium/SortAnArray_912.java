@@ -2,8 +2,6 @@ package com.problems.medium;
 
 import java.util.Arrays;
 
-import com.problems.easy.MergeSortedArray_88;
-
 public class SortAnArray_912 {
 
 	public int[] sortArray_nativeJavaAPI(int[] nums) {
@@ -61,50 +59,50 @@ public class SortAnArray_912 {
 
 	public int[] sortArray_MergeSort(int[] nums) {
 		int n = nums.length;
-		return mergeSort(nums,0,n-1);
+		return mergeSort(nums, 0, n - 1);
 	}
+
 	private int[] mergeSort(int[] nums, int sI, int eI) {
-		if(sI >= eI) {
+		if (sI >= eI) {
 			return nums;
 		}
-		int mid = (sI + eI)/2;
+		int mid = (sI + eI) / 2;
 		mergeSort(nums, sI, mid);
-		mergeSort(nums, mid +1, eI);
-		mergeTwoSortedArrays(nums,sI,mid,eI);
+		mergeSort(nums, mid + 1, eI);
+		mergeTwoSortedArrays(nums, sI, mid, eI);
 		return nums;
 	}
 
 	private void mergeTwoSortedArrays(int[] nums, int sI, int mid, int eI) {
-		int temp[] = new int[eI-sI+1];
+		int temp[] = new int[eI - sI + 1];
 		int i = sI;
-		int j = mid+1; 
+		int j = mid + 1;
 		int k = 0;
-		while(i <= mid && j <= eI) {
-			if(nums[i] <= nums[j]) {
+		while (i <= mid && j <= eI) {
+			if (nums[i] <= nums[j]) {
 				temp[k] = nums[i];
 				i++;
-			}
-			else {
+			} else {
 				temp[k] = nums[j];
 				j++;
 			}
 			k++;
 		}
-		
-		while(i <= mid) {
+
+		while (i <= mid) {
 			temp[k] = nums[i];
 			i++;
 			k++;
 		}
-		while(j<=eI) {
+		while (j <= eI) {
 			temp[k] = nums[j];
 			j++;
 			k++;
 		}
-		
-		for(i = sI; i <= eI;i++) {
-			nums[i] = temp[i-sI];
-		} 
+
+		for (i = sI; i <= eI; i++) {
+			nums[i] = temp[i - sI];
+		}
 	}
 
 	public static void main(String[] args) {

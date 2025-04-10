@@ -1,5 +1,6 @@
 package com.roadmap.arrays.FAQs_Hard;
 
+/*# Author: keshav122*/
 public class MaximumProductSubArrayInArray {
     public int maxProduct_BF(int[] nums) {
         int max_product = Integer.MIN_VALUE;
@@ -34,5 +35,3 @@ public class MaximumProductSubArrayInArray {
         return max_product;
     }
 }
-
-# Author: keshav122
