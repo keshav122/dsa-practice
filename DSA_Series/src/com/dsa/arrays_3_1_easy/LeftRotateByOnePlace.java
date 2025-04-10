@@ -11,3 +11,5 @@ public class LeftRotateByOnePlace {
            return arr;
 	    }
 }
+
+# Author: keshav122
