@@ -1,5 +1,6 @@
 package com.roadmap.beginnerproblems.patterns;
 
+/* Author: keshav122 */
 public class Pattern11 {
     public void pattern11(int n) {
         for (int i = 0; i < n; i++) {
