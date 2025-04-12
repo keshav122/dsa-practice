@@ -1,5 +1,6 @@
 package com.roadmap.beginnerproblems.basic_maths;
 
+/* Author: keshav122   */
 public class ReverseANumber {
     public int reverseNumber(int n) {
         int reversedValue = 0;
@@ -11,5 +12,3 @@ public class ReverseANumber {
         return reversedValue;
     }
 }
-
-# Author: keshav122
