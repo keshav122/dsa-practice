@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Queue;
 
 public class ConnectedComponents {
+    @SuppressWarnings("unchecked")
     public int findNumberOfComponent(int E, int V, List<List<Integer>> edges) {
         // To store adjacency list
         List<Integer>[] adjLists = new ArrayList[V];
