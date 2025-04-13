@@ -1,4 +1,4 @@
-package com.roadmap.graphs.theory_and_traversals;
+package com.roadmap.graphs.traversal_problems;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
