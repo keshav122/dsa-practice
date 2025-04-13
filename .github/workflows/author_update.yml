@@ -8,6 +8,9 @@ jobs:
   update-author:
     runs-on: ubuntu-latest
 
+    env: # Add branch name as a job-level environment variable
+      BRANCH_NAME: "update-author-${{ github.run_id }}"
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -29,7 +32,6 @@ jobs:
 
       - name: Create a new branch
         run: |
-          BRANCH_NAME="update-author-$(date +%Y%m%d)"
           git checkout -b $BRANCH_NAME
 
       - name: Commit changes
@@ -47,8 +49,8 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: $BRANCH_NAME
           title: "Update author information"
-          body: "This PR updates the author information in one file." 
-          
+          body: "This PR updates the author information in one file."
+
       - name: Merge Pull Request
         uses: actions/github-script@v6
         with:
@@ -58,7 +60,7 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               state: 'open',
-              head: `${context.repo.owner}:${BRANCH_NAME}`,
+              head: `${context.repo.owner}:${process.env.BRANCH_NAME}`,
             }).then(response => response.data[0]);
 
             if (pr) {
