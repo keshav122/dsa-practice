@@ -33,3 +33,45 @@ In each iteration,  select an element from the unsorted part of the array using 
 2. Use an inner loop to shift the remaining elements as necessary to accommodate the seleted element. 
 3. This involves swapping until the selected element is in it's correct position. 
 4. Continue this process until the array is sorted 
+
+
+
+## Merge Sort 
+The merge sort works on the divide and conquer technique, it divides the arrays into two halves until we reach to a level where each half contains only one element, which is by default sorted. Then we merge the two sorted halves which is basically merging two sorted arrays.
+Algo looks like:
+
+mergeSort(arr, sI, eI): // where sI - startIndex and eI- endIndex
+     int mid = (sI + eI)/2
+     mergeSort(arr, sI, mid);
+     mergeSort(arr, mid+1, eI);
+     mergeTwoSortedArrays(arr,sI,mid,eI);
+
+One of the key points in mergingTwoSortedArrays is to take a temp array and make changes and then copy back , rather than making the changes inplace in the input array.
+
+TC : O(NlogN)
+SC : O(N)
+
+## Quick Sort
+Quick Sort is also an divide and conquer algorithm. The idea is:
+1. Pick a pivot element(it can be anything : first , last , median or any random element of the array) and place in its correct place (as it will be placed in the sorted array).
+2. Elements smaller than the pivotElement should be on left whereas elements greater than the pivotElement should be on the right.
+3. Repeat these steps until the array is sorted.
+
+Pseudocode:
+        qs(arr,low,high):
+            int pivotIndex = pivotIndex(arr,low, high);// pivotIndex is the correct position of // the pivot element
+            qs(arr, low ,pivotIndex-1);
+            qs(arr,pivotIndex + 1, high);
+
+        pivotIndex(arr,low,high):
+            pivotElem = arr[low]
+            int i = low , j = high;
+            while(i< j):
+                while(arr[i] <= arr[pivot] && i< high) {i++};
+                while(arr[j] > arr[pivot] && j> low) {j--};
+                if(i<j) swap(arr[i],arr[j])
+            
+            swap(arr[low],arr[j]);
+            return j;
+
+
