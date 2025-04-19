@@ -6,47 +6,38 @@ public class QuickSort {
         return nums;
     }
 
-    private void quickSort(int[] nums, int startIndex, int endIndex) {
-        if (startIndex >= endIndex)
+    private void quickSort(int[] nums, int low, int high) {
+        if (low >= high)
             return;
-        int pivotIndex = partition(nums, startIndex, endIndex);
-        quickSort(nums, startIndex, pivotIndex - 1);
-        quickSort(nums, pivotIndex + 1, endIndex);
-
+        int pivotIndex = findPivotIndex(nums, low, high);
+        quickSort(nums, low, pivotIndex - 1);
+        quickSort(nums, pivotIndex + 1, high);
     }
 
-    private int partition(int[] nums, int startIndex, int endIndex) {
-        int pivotElement = nums[startIndex];
-        int count = 1;
-        for (int i = startIndex + 1; i <= endIndex; i++) {
-            if (nums[i] <= pivotElement) {
-                count++;
-            }
-        }
-        int pivotPos = startIndex + count;
-        // swap the startIndex and element at pivotPos
-        int temp = nums[pivotPos];
-        nums[pivotPos] = nums[startIndex];
-        nums[startIndex] = temp;
-
-        int i = startIndex;
-        int j = endIndex;
-        while (i < pivotPos && j > pivotPos) {
-            if (nums[i] <= pivotElement) {
+    private int findPivotIndex(int[] nums, int low, int high) {
+        int pivotElement = nums[low];
+        int i = low;
+        int j = high;
+        while (i < j) {
+            while (nums[i] <= pivotElement && i < high) {
                 i++;
             }
-            if (nums[j] > pivotElement) {
+            while (nums[j] > pivotElement && j > low) {
                 j--;
             }
-            if (nums[i] > pivotElement && nums[j] <= pivotElement) {
-                int tempVal = nums[i];
+            // swap i and j
+            if (i < j) {
+                int temp = nums[i];
                 nums[i] = nums[j];
-                nums[j] = tempVal;
-                i++;
-                j--;
+                nums[j] = temp;
             }
+
         }
-        return pivotPos;
+
+        // swap low and j
+        nums[low] = nums[j];
+        nums[j] = pivotElement;
+        return j;
     }
 
     public static void main(String[] args) {
