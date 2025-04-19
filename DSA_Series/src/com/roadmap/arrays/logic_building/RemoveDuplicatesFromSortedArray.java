@@ -14,4 +14,17 @@ public class RemoveDuplicatesFromSortedArray {
         }
         return currPointer;
     }
+
+    public int removeDuplicatesOptimal(int[] nums) {
+        if (nums.length == 0)
+            return 0;
+        int lastUniqueIndex = 0;
+        for (int currIndex = 1; currIndex < nums.length; currIndex++) {
+            if (nums[currIndex] != nums[lastUniqueIndex]) {
+                lastUniqueIndex++;
+                nums[lastUniqueIndex] = nums[currIndex];
+            }
+        }
+        return lastUniqueIndex + 1;
+    }
 }
