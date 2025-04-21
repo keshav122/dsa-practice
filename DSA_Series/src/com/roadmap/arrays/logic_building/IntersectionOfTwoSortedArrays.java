@@ -2,13 +2,64 @@ package com.roadmap.arrays.logic_building;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.LinkedHashSet;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Set;
+import java.util.Map;
 
 public class IntersectionOfTwoSortedArrays {
-    public int[] intersectionArray_BF(int[] nums1, int[] nums2) {
+    public int[] intersectionArray_BF1(int[] nums1, int[] nums2) {
+        List<Integer> ansList = new ArrayList<>();
+        int[] visited = new int[nums2.length];
+        for (int i = 0; i < nums1.length; i++) {
+            for (int j = 0; j < nums2.length; j++) {
+                if (nums1[i] == nums2[j] && visited[j] == 0) {
+                    ansList.add(nums2[j]);
+                    visited[j] = 1;
+                    break;
+                } else if (nums2[j] > nums1[i])
+                    break;
+            }
+        }
+        int[] ans = new int[ansList.size()];
+        for (int k = 0; k < ansList.size(); k++) {
+            ans[k] = ansList.get(k);
+        }
+        return ans;
+    }
+
+    public int[] intersectionArray_BF2(int[] nums1, int[] nums2) {
+        Map<Integer, Integer> freqMap1 = new HashMap<>();
+        Map<Integer, Integer> freqMap2 = new HashMap<>();
+
+        for (int num : nums1) {
+            freqMap1.merge(num, 1, Integer::sum);
+        }
+
+        for (int num : nums2) {
+            freqMap2.merge(num, 1, Integer::sum);
+        }
+
+        List<Integer> list = new ArrayList<>();
+        for (Map.Entry<Integer, Integer> entry : freqMap1.entrySet()) {
+            int key = entry.getKey();
+            if (freqMap2.containsKey(key)) {
+                int count = Math.min(entry.getValue(), freqMap2.get(key));
+                for (int i = 1; i <= count; i++) {
+                    list.add(key);
+                }
+            }
+        }
+        int[] res = new int[list.size()];
+        int i = 0;
+        for (int val : list) {
+            res[i++] = val;
+        }
+        Arrays.sort(res);
+        return res;
+    }
+
+    public int[] intersectionArray_BF3(int[] nums1, int[] nums2) {
         List<Integer> unionList = new LinkedList<>();
         int i = 0, j = 0;
         while (i < nums1.length && j < nums2.length) {
@@ -31,108 +82,37 @@ public class IntersectionOfTwoSortedArrays {
         return result;
     }
 
-    // BruteForce Using Set
-    public int[] intersectionArray_BF1(int[] nums1, int[] nums2) {
-        Set<Integer> set = new LinkedHashSet<>();
-        for (int num : nums1) {
-            set.add(num);
-        }
-        for (int num : nums2) {
-            set.add(num);
-        }
-        int[] res = new int[set.size()];
-        int i = 0;
-        for (int val : set) {
-            res[i] = val;
-            i++;
-        }
-        Arrays.sort(res);
-        return res;
-    }
-
-    public int[] unionArray_Optimal1(int[] nums1, int[] nums2) {
-        Set<Integer> unionSet = new LinkedHashSet<>();
-        int i = 0, j = 0, n1 = nums1.length, n2 = nums2.length;
-        while (i < n1 && j < n2) {
-            if (nums1[i] <= nums2[j]) {
-                unionSet.add(nums1[i]);
+    public int[] intersectionArrayOptimal(int[] nums1, int[] nums2) {
+        int i = 0, j = 0, n = nums1.length, m = nums2.length;
+        List<Integer> intersectionList = new LinkedList<>();
+        while (i < n && j < m) {
+            if (nums1[i] == nums2[j]) {
+                intersectionList.add(nums1[i]);
+                i++;
+                j++;
+            } else if (nums1[i] < nums2[j]) {
                 i++;
             } else {
-                unionSet.add(nums2[j]);
                 j++;
             }
         }
 
-        while (i < n1) {
-            unionSet.add(nums1[i]);
-            i++;
-        }
-        while (j < n2) {
-            unionSet.add(nums2[j]);
-            j++;
-        }
-
-        int[] res = new int[unionSet.size()];
-        int k = 0;
-        for (int val : unionSet) {
-            res[k++] = val;
-        }
-        return res;
+        return listToArr(intersectionList);
     }
 
-    public int[] unionArray(int[] nums1, int[] nums2) {
-        List<Integer> unionList = new ArrayList<>();
-        int i = 0, j = 0;
-        int n = nums1.length;
-        int m = nums2.length;
-
-        while (i < n && j < m) {
-            // Case 1 and 2
-            if (nums1[i] <= nums2[j]) {
-                if (unionList.isEmpty() || unionList.get(unionList.size() - 1) != nums1[i]) {
-                    unionList.add(nums1[i]);
-                }
-                i++;
-            }
-            // Case 3
-            else {
-                if (unionList.isEmpty() || unionList.get(unionList.size() - 1) != nums2[j]) {
-                    unionList.add(nums2[j]);
-                }
-                j++;
-            }
+    private int[] listToArr(List<Integer> li) {
+        int[] ans = new int[li.size()];
+        for (int k = 0; k < li.size(); k++) {
+            ans[k] = li.get(k);
         }
-
-        // Add remaining elements of nums1, if any
-        while (i < n) {
-            if (unionList.isEmpty() || unionList.get(unionList.size() - 1) != nums1[i]) {
-                unionList.add(nums1[i]);
-            }
-            i++;
-        }
-
-        // Add remaining elements of nums2, if any
-        while (j < m) {
-            if (unionList.isEmpty() || unionList.get(unionList.size() - 1) != nums2[j]) {
-                unionList.add(nums2[j]);
-            }
-            j++;
-        }
-
-        // Convert List<Integer> to int[]
-        int[] union = new int[unionList.size()];
-        for (int k = 0; k < unionList.size(); k++) {
-            union[k] = unionList.get(k);
-        }
-
-        return union;
+        return ans;
     }
 
     public static void main(String[] args) {
         int[] nums1 = { -45, -45, 0, 0, 2 };
         int[] nums2 = { -50, -45, 0, 0, 5, 7 };
         IntersectionOfTwoSortedArrays i = new IntersectionOfTwoSortedArrays();
-        int[] res = i.intersectionArray_BF(nums1, nums2);
+        int[] res = i.intersectionArray_BF1(nums1, nums2);
         for (int a : res) {
             System.out.print(a + " ");
         }
