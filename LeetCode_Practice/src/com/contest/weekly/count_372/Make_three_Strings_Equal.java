@@ -1,3 +1,4 @@
+/*Author: keshav122 */
 package com.contest.weekly.count_372;
 
 public class Make_three_Strings_Equal {
@@ -31,6 +32,10 @@ public class Make_three_Strings_Equal {
 		String s3 = "ab";
 		Make_three_Strings_Equal obj = new Make_three_Strings_Equal();
 		System.out.println(obj.findMinimumOperations(s1, s2, s3));
+		
+	}
+}
+
 		
 	}
 }
