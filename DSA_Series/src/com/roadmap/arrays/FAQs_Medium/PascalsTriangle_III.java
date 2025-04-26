@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class PascalsTriangle {
+public class PascalsTriangle_III {
     public List<List<Integer>> pascalTriangle(int numRows) {
         List<List<Integer>> pascalLists = new ArrayList<>();
         if (numRows == 1) {
@@ -38,5 +38,24 @@ public class PascalsTriangle {
             li.add(1);
             pascalLists.add(li);
         }
+    }
+
+    public List<List<Integer>> pascalTriangleIII(int n) {
+        List<List<Integer>> res = new ArrayList<>();
+        for (int i = 1; i <= n; i++) {
+            res.add(rowOfPascalTriangle(i));
+        }
+        return res;
+    }
+
+    private List<Integer> rowOfPascalTriangle(int r) {
+        List<Integer> ans = new ArrayList<>();
+        ans.add(1);
+        for (int i = 1; i < r; i++) {
+            int val = (ans.get(i - 1) * (r - i));
+            val /= i;
+            ans.add(val);
+        }
+        return ans;
     }
 }

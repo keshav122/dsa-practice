@@ -22,6 +22,7 @@ public class RotateMatrixBy90Degrees {
     public void rotateMatrix(int[][] matrix) {
         int n = matrix.length;
         // Transpose the matrix
+        // the rows becomes the columns and vice-versa
         for (int i = 0; i < n; i++) {
             for (int j = 0; j <= i; j++) {
                 int temp = matrix[i][j];
@@ -32,16 +33,21 @@ public class RotateMatrixBy90Degrees {
 
         // Reverse it
         for (int i = 0; i < n; i++) {
-            int j = 0, k = n - 1;
-            while (j <= k) {
-                int temp = matrix[i][j];
-                matrix[i][j] = matrix[i][k];
-                matrix[i][k] = temp;
-                j++;
-                k--;
-            }
+            reverseArr(matrix[i], n);
         }
 
+    }
+
+    private void reverseArr(int[] arr, int n) {
+        int i = 0;
+        int j = n - 1;
+        while (i < j) {
+            int temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+            i++;
+            j--;
+        }
     }
 
     public static void main(String[] args) {

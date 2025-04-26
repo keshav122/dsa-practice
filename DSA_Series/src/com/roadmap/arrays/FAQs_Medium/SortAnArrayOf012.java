@@ -1,6 +1,12 @@
 package com.roadmap.arrays.FAQs_Medium;
 
+import java.util.Arrays;
+
 public class SortAnArrayOf012 {
+    public void sortZeroOneTwo_BF(int[] nums) {
+        Arrays.sort(nums);
+    }
+
     public void sortZeroOneTwo(int[] nums) {
         int zeroCount = 0, oneCount = 0, n = nums.length;
         for (int num : nums) {
