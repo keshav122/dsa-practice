@@ -30,3 +30,22 @@ Initialize the list with a size equal to the given row number.
 Set the first element of the row to 1, as the first element in every row of Pascal's Triangle is always 1.
 Iterate through the row to compute each value using the above formula.
 Return the computed row as the final result.
+
+
+### Rotate the matrix by 90 degrees.
+The BF approach is to take an extra matrix
+The in-place and optimal approach includes first doing the transpose(the rows becomes the columns and the columns becomes the rows) followed by reversing each of the rows.
+
+### Sort the array - 0s , 1s and 2s
+We basically keep three pointers low , mid & high
+
+Three rules of DNF Algo :
+
+Everything b/w 0- (low-1) will be **zero (extreme left)**
+Everything b/w low to (mid-1) will be **one**
+Everything b/w high+1 to (n-1) will be **two (extreme right)**
+
+In b/w mid to high 0,1 & 2 will be random/unsorted
+
+If are able to sort values b/w indices mid and high we will eventually sort the complete array.
+![Sort012_Image](src/com/roadmap/arrays/FAQs_Medium/docs/sort012.png)

@@ -32,26 +32,21 @@ public class ThreeSum {
     }
 
     public List<List<Integer>> threeSum_better(int[] nums) {
-        List<List<Integer>> ans = new ArrayList<>();
+        Set<List<Integer>> res = new HashSet<>();
         int n = nums.length;
-        Arrays.sort(nums);
-        for (int i = 0; i < n - 1; i++) {
+        for (int i = 0; i < n; i++) {
             Set<Integer> hashSet = new HashSet<>();
             for (int j = i + 1; j < n; j++) {
                 int target = -(nums[i] + nums[j]);
                 if (hashSet.contains(target)) {
-                    List<Integer> li = new ArrayList<>();
-                    li.add(nums[i]);
-                    li.add(nums[j]);
-                    li.add(target);
+                    List<Integer> li = Arrays.asList(nums[i], nums[j], target);
                     Collections.sort(li);
-                    if (!ans.contains(li)) {
-                        ans.add(li);
-                    }
+                    res.add(li);
                 }
                 hashSet.add(nums[j]);
             }
         }
+        List<List<Integer>> ans = new ArrayList<>(res);
         return ans;
     }
 
@@ -137,5 +132,43 @@ public class ThreeSum {
         }
 
         return ans;
+    }
+
+    public List<List<Integer>> threeSum(int[] nums) {
+        Arrays.sort(nums);
+        int n = nums.length;
+        List<List<Integer>> res = new ArrayList<>();
+        for (int i = 0; i < n - 2; i++) {
+            if (i > 0 && nums[i] == nums[i - 1]) {
+                continue; // skip duplicates for i
+            }
+            addPairs(nums, i + 1, res, -1 * nums[i]);
+        }
+        return res;
+    }
+
+    private void addPairs(int[] nums, int sI, List<List<Integer>> res, int target) {
+        int eI = nums.length - 1;
+        while (sI < eI) {
+            int val = nums[sI] + nums[eI];
+            if (val == target) {
+                List<Integer> li = Arrays.asList(-1 * target, nums[sI], nums[eI]);
+                res.add(li);
+                int currStartVal = nums[sI];
+                int currEndVal = nums[eI];
+                // used for skipping duplicate pairs
+                while (sI < eI && currStartVal == nums[sI]) {
+                    sI++;
+                }
+                while (sI < eI && currEndVal == nums[eI]) {
+                    eI--;
+                }
+
+            } else if (val > target) {
+                eI--;
+            } else {
+                sI++;
+            }
+        }
     }
 }
