@@ -48,4 +48,4 @@ Everything b/w high+1 to (n-1) will be **two (extreme right)**
 In b/w mid to high 0,1 & 2 will be random/unsorted
 
 If are able to sort values b/w indices mid and high we will eventually sort the complete array.
-![Sort012_Image](src/com/roadmap/arrays/FAQs_Medium/docs/sort012.png)
+![Sort012_Image](FAQs_Medium/docs/sort012.png)
