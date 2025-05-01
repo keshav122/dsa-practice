@@ -1,0 +1,71 @@
+name: Update Author Name
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  update-author:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Update author name in one file
+        run: |
+          python update_author.py
+
+      - name: Configure Git
+        run: |
+          git config user.name "keshav122"
+          git config user.email "keshavchaudhary401@gmail.com"
+          git config --global push.autoSetupRemote true
+
+      - name: Create a new branch
+        run: |
+          BRANCH_NAME="update-author-$(date +%Y%m%d)"
+          git checkout -b $BRANCH_NAME
+
+      - name: Commit changes
+        run: |
+          git add .
+          git commit -m "Updated author information in one file"
+
+      - name: Push changes to new branch
+        run: |
+          git push --set-upstream origin $BRANCH_NAME
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: $BRANCH_NAME
+          title: "Update author information"
+          body: "This PR updates the author information in one file." 
+          
+      - name: Merge Pull Request
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const pr = await github.pulls.list({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              head: `${context.repo.owner}:${BRANCH_NAME}`,
+            }).then(response => response.data[0]);
+
+            if (pr) {
+              await github.pulls.merge({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                pull_number: pr.number,
+                merge_method: 'merge',
+              });
+            }

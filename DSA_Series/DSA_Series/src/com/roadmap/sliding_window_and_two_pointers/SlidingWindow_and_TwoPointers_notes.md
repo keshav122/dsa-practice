@@ -1,0 +1,1 @@
+-- We take l and r , we move r , the window size is (r-l+1) . Incase the window size is greater than the constraint given we shift l to adjust the window size.
