@@ -10,5 +10,5 @@
         "jshintrc",
         "ts"
     ],
-    "java.debug.settings.onBuildFailureProceed": true
+    "java.debug.settings.onBuildFailureProceed": true,
 }
