@@ -19,27 +19,23 @@ public class MajorityElementNBy2 {
 
     public int majorityElement(int[] nums) {
         int n = nums.length;
-        int candidate = nums[0];
-        int occurenceCount = 1;
-        for (int i = 1; i < n; i++) {
-            if (nums[i] == candidate) {
-                occurenceCount++;
-            } else {
-                occurenceCount--;
-                if (occurenceCount == 0) {
-                    candidate = nums[i];
-                    occurenceCount = 1;
-                }
-            }
-        }
-        int count = 0;
-        for (int num : nums) {
-            if (num == candidate) {
+        int candidate = 0, count = 0;
+        for (int i = 0; i < n; i++) {
+            if (count == 0) {
+                candidate = nums[i];
+                count = 1;
+            } else if (nums[i] == candidate) {
                 count++;
+            } else {
+                count--;
             }
         }
-        return (count > n / 2) ? candidate : -1;
-
+        count = 0;
+        for (int i = 0; i < n; i++) {
+            if (nums[i] == candidate)
+                count++;
+        }
+        return (count > (n / 2)) ? candidate : -1;
     }
 
 }
