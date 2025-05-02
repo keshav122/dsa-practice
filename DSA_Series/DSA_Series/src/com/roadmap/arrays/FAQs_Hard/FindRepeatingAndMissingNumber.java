@@ -4,6 +4,50 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class FindRepeatingAndMissingNumber {
+    public int[] findMissingRepeatingNumbers_BF(int[] nums) {
+        int[] ans = new int[2];
+        int repeating = -1, missing = -1;
+        for (int i = 1; i <= n; i++) {
+            int count = 0;
+            for (int j = 0; j < n; j++) {
+                if (nums[j] == i) {
+                    count++;
+                }
+            }
+            if (count == 2)
+                repeating = i;
+            else if (count == 0)
+                missing = i;
+
+            if (missing != -1 && repeating != -1) {
+                ans[0] = repeating;
+                ans[1] = missing;
+                break;
+            }
+
+        }
+        return ans;
+    }
+
+    public int[] findMissingRepeatingNumbers_hashing(int[] nums) {
+        int n = nums.length;
+        int[] hash = new int[n + 1];
+        for (int i = 0; i < n; i++) {
+            hash[nums[i]]++;
+        }
+
+        int[] ans = new int[2];
+        for (int i = 1; i <= n; i++) {
+            if (hash[i] == 0)
+                ans[1] = i;
+            if (hash[i] == 2)
+                ans[0] = i;
+            if (ans[0] != 0 && ans[1] != 0)
+                break;
+        }
+        return ans;
+    }
+
     public int[] findMissingRepeatingNumbers(int[] nums) {
         int n = nums.length;
         int[] ans = new int[2];
@@ -25,5 +69,26 @@ public class FindRepeatingAndMissingNumber {
         }
 
         return ans;
+    }
+
+    public int[] findMissingRepeatingNumbers(int[] nums) {
+        // S-Sn where Sn is the sum of first n natural numbers which is (n * (n+1))/2
+        // S^2 -Sn^2 where Sn^2 is the sum of squares of first n natural numbers which
+        // is (n* (n+1) * (2n + 1))/6
+
+        long n = nums.length;
+        long sum = 0, sumSquared = 0;
+        long Sn = (n * (n + 1)) / 2;
+        long SnSq = (n * (n + 1) * (2 * n + 1)) / 6;
+        for (int num : nums) {
+            sum += num;
+            sumSquared += (long) (num) * (long) (num);
+        }
+        long val1 = sum - Sn;// x-y
+        long val2 = sumSquared - SnSq;
+        val2 = (val2 / val1);// x+y
+        long x = (val1 + val2) / 2;
+        long y = x - val1;
+        return new int[] { (int) x, (int) y };
     }
 }
