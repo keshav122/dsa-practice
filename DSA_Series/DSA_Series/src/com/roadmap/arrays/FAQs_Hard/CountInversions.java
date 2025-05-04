@@ -70,6 +70,7 @@ public class CountInversions {
             right++;
             k++;
         }
+        // System.arraycopy(temp, 0, nums, low, high - low + 1);
         for (left = startIndex; left <= endIndex; left++) {
             nums[left] = temp[left - startIndex];
         }

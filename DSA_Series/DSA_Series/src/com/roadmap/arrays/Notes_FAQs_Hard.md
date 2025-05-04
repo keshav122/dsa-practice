@@ -111,3 +111,81 @@ else:
     missing = zero
 
 
+### Count Inversions
+Given an integer array nums. Return the number of inversions in the array.
+Two elements a[i] and a[j] form an inversion if a[i] > a[j] and i < j.
+
+The optimal approach is based on the insight that if there are two sorted arrays :
+{5,10,11}  & {3,4,7,9} so comparing the first element if 5 is greater than 3 then the elements
+ahead of it will always be greater than 3.
+Using this , we know that in Merge sort we divide the arrays into sorted subaarays
+and compare the sorted arrays so from there we can calcuate our count.
+
+# Reverse Pairs
+Given an integer array nums. Return the number of reverse pairs in the array.
+An index pair (i, j) is called a reverse pair if:
+0 <= i < j < nums.length
+nums[i] > 2 * nums[j].
+
+We cannot directly apply the merge sort and change the condition to if(nums[left] > 2 * nums[right]) otherwise we will not lose on a lot of cases
+For eg : {6,13,14,15} and {3,4,5}
+Although 6 and 3 will not form pair but 3 can form pairs with 13, 14 and 15 but that also will be missed. 
+To manage this we write another function to count the possible pairs.
+```
+private int countPairs(int[] nums, int low , int mid , int high){
+      int count = 0, right = mid + 1;
+      for(int i = low ; i<= mid; i++){
+        while(right <= high && nums[i] > 2 * nums[right]){
+            right++;
+        }
+        count += right - (mid + 1);
+      }
+      return count;
+    }
+```
+
+### Maximum Product Subarray 
+It has few observations:
+1. If the all the values are positives or there are even negatives with all the other values
+as positives => we can mutiply all the elements to get the max product
+2. If there are odd number of negatives => we need to remove one negative to get the max product. So for example : 3  4 -1 2 3 4 -5 5 - 2 6
+If we don't take the -1 the subarrays can be either {3,4} or {2 3 4 -5 5 - 2 6 }
+3. If there are zeroes , we avoid them completely that is we set the product back to 1.
+
+Approach is to calculate the prefix and suffix and return whatever is the max.
+If the prefix/suffix ever turns to be zero , set the prefix/suffix to 1.
+
+```
+public int maxProduct(int[] nums) {
+        int n = nums.length;
+        int maxProduct = Integer.MIN_VALUE;
+        int prefix = 1, suffix = 1;
+        for(int i = 0; i< n ; i++){
+            if(prefix == 0) prefix = 1;
+            if(suffix == 0) suffix = 1;
+            prefix *= nums[i];
+            suffix *= nums[n-i-1];
+            maxProduct = Math.max(maxProduct,Math.max(prefix,suffix));
+        }
+        return maxProduct;
+    }
+```
+
+### Merge Two Sorted Arrays Without Extra Space
+BF : we take the extra array as generally the problem don;t specify not to take extra space
+Optimal 1: 
+keep a pointer at the end of first array and at the first of second array
+If nums1[i] > nums2[j] swap(nums1[i] , nums2[j])
+Keep repeating this until the condition holds
+After that all the smaller nos are in first array and the larger in the second array .
+Sort both the arrays.
+
+Optimal 2: 
+This works on the Gap method taken from shell sort
+Take gap = (len)/2 + (len) %2 where len is sum of length of both the arrays
+while(gap > 0) 
+Keep left ptr at 0 and right ptr at gap
+There can be three scenarios , both are in left , both are in right , left in 1st arr and right in 2nd array. 
+If a[left] > a[right] => swap
+If right crosses boundary(len) , readjust gap to ceil(gap/2) achived by
+gap = (gap/2) + (gap%2) 
