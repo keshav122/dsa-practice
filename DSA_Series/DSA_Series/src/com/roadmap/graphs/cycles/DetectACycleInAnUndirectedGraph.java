@@ -42,6 +42,7 @@ public class DetectACycleInAnUndirectedGraph {
 }
 
 class DetectACycleInAnUndirectedGraphDFS {
+
     public boolean isCycle(int V, List<Integer>[] adj) {
         boolean[] vis = new boolean[V];
         for (int i = 0; i < V; i++) {
