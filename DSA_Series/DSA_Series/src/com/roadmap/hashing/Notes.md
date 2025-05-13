@@ -53,3 +53,4 @@ So for 2 2 6 to have a xor k we must have x equal to xr ^ k (where xr is the xor
 elements upto that ending point)
 So we can count and track the same using a hashmap.
 Make sure to add (0,1) for a subarray with no elements will be having xor as 0.
+# Author: keshav122
