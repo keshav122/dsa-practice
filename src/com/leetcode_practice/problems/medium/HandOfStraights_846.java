@@ -1,7 +1,6 @@
 package com.leetcode_practice.problems.medium;
 
 /*Author: keshav122 */
-package com.problems.medium;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -11,7 +10,7 @@ import java.util.Set;
 
 public class HandOfStraights_846 {
 
-	//Incorrect Solution
+	// Incorrect Solution
 	public static boolean isNStraightHand_MySolution(int[] hand, int groupSize) {
 		int n = hand.length;
 		if (n % groupSize != 0)
@@ -80,8 +79,7 @@ public class HandOfStraights_846 {
 
 		return true;
 	}
-	
-	
+
 	public static void main(String[] args) {
 		int[] a = { 9, 13, 15, 23, 22, 25, 4, 4, 29, 15, 8, 23, 12, 19, 24, 17, 18, 11, 22, 24, 17, 17, 10, 23, 21, 18,
 				14, 18, 7, 6, 3, 6, 19, 11, 16, 11, 12, 13, 8, 26, 17, 20, 13, 19, 22, 21, 27, 9, 20, 15, 20, 27, 8, 13,

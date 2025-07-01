@@ -1,7 +1,6 @@
 package com.leetcode_practice.problems.medium;
 
 /*Author: keshav122 */
-package com.problems.medium;
 
 /*# Author: keshav122*/
 public class RotateArray_189 {

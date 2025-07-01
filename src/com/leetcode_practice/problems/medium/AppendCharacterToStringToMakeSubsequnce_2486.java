@@ -1,16 +1,16 @@
 package com.leetcode_practice.problems.medium;
 
 /*Author: keshav122 */
-package com.problems.medium;
 
 public class AppendCharacterToStringToMakeSubsequnce_2486 {
 
-	//TODO Not yet working correctly try for s: "ajkhe" and t : "juh"
+	// TODO Not yet working correctly try for s: "ajkhe" and t : "juh"
 	public static int appendCharacters(String s, String t) {
 		int sIndex = 0;
 		int tIndex = 0;
 		boolean isMatching = true;
-		if(s.indexOf(t) != -1) return 0;
+		if (s.indexOf(t) != -1)
+			return 0;
 		while (tIndex < t.length() && sIndex < s.length()) {
 			if (s.charAt(sIndex) == t.charAt(tIndex)) {
 				sIndex++;
@@ -21,7 +21,6 @@ public class AppendCharacterToStringToMakeSubsequnce_2486 {
 			}
 		}
 
-		
 		if (isMatching) {
 			if (tIndex == t.length())
 				return 0;

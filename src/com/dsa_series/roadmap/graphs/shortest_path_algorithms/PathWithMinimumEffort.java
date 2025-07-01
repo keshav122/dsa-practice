@@ -1,5 +1,10 @@
 package com.dsa_series.roadmap.graphs.shortest_path_algorithms;
 
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
+import java.util.PriorityQueue;
+
 public class PathWithMinimumEffort {
   int[] delRow = { -1, 0, 1, 0 };
   int[] delCol = { 0, -1, 0, 1 };

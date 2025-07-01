@@ -6,8 +6,6 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.PriorityQueue;
 
-import com.roadmap.binary_search.FAQs.MinimizeMaxDistToGasStations.Pair;
-
 public class PrintShortestPath {
 
     public List<Integer> shortestPath(int n, int m, int[][] edges) {

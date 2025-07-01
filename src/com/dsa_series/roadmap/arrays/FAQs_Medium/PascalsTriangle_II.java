@@ -1,7 +1,6 @@
 package com.dsa_series.roadmap.arrays.FAQs_Medium;
 
 /*Author: keshav122 */
-package com.roadmap.arrays.FAQs_Medium;
 
 public class PascalsTriangle_II {
     public int[] pascalTriangleIIBF(int r) {

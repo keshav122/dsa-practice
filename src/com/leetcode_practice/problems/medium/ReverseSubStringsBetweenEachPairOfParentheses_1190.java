@@ -6,6 +6,8 @@ public class ReverseSubStringsBetweenEachPairOfParentheses_1190 {
 
 	public String reverseParentheses(String s) {
 		Stack<Character> st = new Stack<>();
-		
+
+		// Implement the logic
+		return null;
 	}
 }

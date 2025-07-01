@@ -1,5 +1,10 @@
 package com.dsa_series.roadmap.graphs.shortest_path_algorithms;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.PriorityQueue;
+import java.util.TreeSet;
+
 public class Dijkstras_Algorithm {
     // Min-Heap Based Solution
     public int[] dijkstra(int V, ArrayList<ArrayList<ArrayList<Integer>>> adj, int S) {

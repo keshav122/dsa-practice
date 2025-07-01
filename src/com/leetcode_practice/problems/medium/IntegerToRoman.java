@@ -21,5 +21,6 @@ public class IntegerToRoman {
 			sb.append(s);
 			num = num % 1000;
 		}
+		return sb.toString();
 	}
 }

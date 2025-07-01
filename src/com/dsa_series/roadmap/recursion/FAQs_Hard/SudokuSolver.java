@@ -1,7 +1,6 @@
 package com.dsa_series.roadmap.recursion.FAQs_Hard;
 
 /*Author: keshav122 */
-package com.roadmap.recursion.FAQs_Hard;
 
 public class SudokuSolver {
     public void solveSudoku(char[][] board) {

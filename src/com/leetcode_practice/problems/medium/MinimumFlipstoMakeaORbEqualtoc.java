@@ -14,6 +14,8 @@ public class MinimumFlipstoMakeaORbEqualtoc {
 
 			}
 		}
+		// TODO Correct the logic
+		return -1;
 
 	}
 

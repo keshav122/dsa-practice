@@ -1,7 +1,6 @@
 package com.dsa_series.roadmap.linkedlist.FAQs_Medium;
 
 /*Author: keshav122 */
-package com.roadmap.linkedlist.FAQs_Medium;
 
 public class DeleteTheMiddleNodeInLL {
     public ListNode deleteMiddle(ListNode head) {
@@ -47,7 +46,7 @@ public class DeleteTheMiddleNodeInLL {
         if (head.next == null) {
             return null;
         }
-        ListNode  slow = head, fast = head;
+        ListNode slow = head, fast = head;
         fast = fast.next.next;
         while (fast != null && fast.next != null) {
             slow = slow.next;

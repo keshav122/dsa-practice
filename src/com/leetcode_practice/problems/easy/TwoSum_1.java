@@ -1,7 +1,6 @@
 package com.leetcode_practice.problems.easy;
 
 /*Author: keshav122 */
-package com.problems.easy;
 
 import java.util.HashMap;
 import java.util.Map;

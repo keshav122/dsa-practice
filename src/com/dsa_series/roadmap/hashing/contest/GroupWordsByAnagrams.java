@@ -1,5 +1,12 @@
 package com.dsa_series.roadmap.hashing.contest;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 public class GroupWordsByAnagrams {
     public List<List<String>> groupAnagrams(String[] strs) {
         Map<List<Character>, List<String>> charStringMap = new HashMap<>();

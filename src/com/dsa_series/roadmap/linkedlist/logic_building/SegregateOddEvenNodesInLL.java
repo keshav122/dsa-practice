@@ -1,8 +1,6 @@
 package com.dsa_series.roadmap.linkedlist.logic_building;
 
 /*Author: keshav122 */
-/*Author: keshav122 */
-package com.roadmap.linkedlist.logic_building;
 
 public class SegregateOddEvenNodesInLL {
     public ListNode oddEvenList(ListNode head) {
