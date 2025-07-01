@@ -1,7 +1,6 @@
 package com.leetcode_practice.problems.hard;
 
 /*Author: keshav122 */
-package com.problems.hard;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -123,7 +122,8 @@ public class MedianOfTwoSortedArrays_4 {
 		int n1 = nums1.length;
 		int n2 = nums2.length;
 		// Number of elements on the left side
-		if(n1 > n2) return findMedianSortedArrays_Revision(nums2, nums1);
+		if (n1 > n2)
+			return findMedianSortedArrays_Revision(nums2, nums1);
 		int left = (n1 + n2 + 1) / 2;
 		int n = n1 + n2;
 		int low = 0;

@@ -1,7 +1,6 @@
 package com.dsa_series.roadmap.greedy_algorithms.scheduling_and_interval_problems;
 
 /*Author: keshav122 */
-package com.roadmap.greedy_algorithms.scheduling_and_interval_problems;
 
 import java.util.ArrayList;
 import java.util.Arrays;

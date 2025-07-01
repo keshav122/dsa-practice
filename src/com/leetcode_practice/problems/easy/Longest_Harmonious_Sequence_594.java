@@ -22,26 +22,6 @@ public class Longest_Harmonious_Sequence_594 {
         return lhs;
     }
 
-    public int findLHS(int[] nums) {
-        Arrays.sort(nums);
-        int n = nums.length;
-        int lhs = 0;
-        int i = 0, j = n - 1;
-
-        for (int i = 0; i < n - 1; i++) {
-            int maxVal = nums[i];
-            int minVal = nums[i];
-            for (int j = i + 1; j < n; j++) {
-                maxVal = Math.max(maxVal, nums[j]);
-                minVal = Math.min(minVal, nums[j]);
-                if (maxVal - minVal == 1) {
-                    lhs = Math.max(lhs, j - i + 1);
-                }
-            }
-        }
-        return lhs;
-    }
-
     public int findLHS_better(int[] nums) {
         Arrays.sort(nums);
         int n = nums.length;
@@ -63,7 +43,7 @@ public class Longest_Harmonious_Sequence_594 {
     public int findLHS_optimal(int[] nums) {
         Map<Integer, Integer> freqMap = new HashMap<>();
         for (int num : nums) {
-            freqMap.merge(n um ,1,Integer::sum);
+            freqMap.merge(num, 1, Integer::sum);
         }
 
         int maxLen = 0;

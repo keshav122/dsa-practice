@@ -1,5 +1,9 @@
 package com.dsa_series.roadmap.graphs.minimum_spanning_tree;
 
+import java.util.Comparator;
+import java.util.List;
+import java.util.PriorityQueue;
+
 public class MST_PrimAlgorithm {
     public int spanningTree(int V, List<List<List<Integer>>> adj) {
         int weightSum = 0;

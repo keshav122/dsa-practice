@@ -1,7 +1,6 @@
 package com.leetcode_practice.problems.medium;
 
 /*Author: keshav122 */
-package com.problems.medium;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -45,7 +44,7 @@ public class SetMatrixZeroes_73 {
 	}
 
 	public void setZeroes_better(int[][] matrix) {
-		//we will keep a row array & a column array to track the zero 
+		// we will keep a row array & a column array to track the zero
 		int rows[] = new int[matrix.length];
 		int cols[] = new int[matrix[0].length];
 		for (int i = 0; i < rows.length; i++) {
@@ -56,8 +55,7 @@ public class SetMatrixZeroes_73 {
 				}
 			}
 		}
-		
-		
+
 		for (int i = 0; i < rows.length; i++) {
 			for (int j = 0; j < cols.length; j++) {
 				if (rows[i] == 1 || cols[j] == 1) {
@@ -66,6 +64,7 @@ public class SetMatrixZeroes_73 {
 			}
 		}
 	}
+
 	public void setZeroes(int[][] matrix) {
 		List<Integer> rows = new ArrayList<>();
 		List<Integer> cols = new ArrayList<>();
@@ -126,10 +125,10 @@ public class SetMatrixZeroes_73 {
 	}
 
 	public void setZeroes_optimal(int[][] matrix) {
-		//we will maintain the 0th row and column as our arrays to track zeroes
-		
-		//int cols[] = {0}; -> matrix[0]{...}
-		//int rows[] = {0}; -> matrix{..}[0]
+		// we will maintain the 0th row and column as our arrays to track zeroes
+
+		// int cols[] = {0}; -> matrix[0]{...}
+		// int rows[] = {0}; -> matrix{..}[0]
 		int rowLen = matrix.length;
 		int colLen = matrix[0].length;
 		int col0 = 1;
@@ -137,33 +136,34 @@ public class SetMatrixZeroes_73 {
 			for (int j = 0; j < colLen; j++) {
 				if (matrix[i][j] == 0) {
 					matrix[i][0] = 0;
-					if(j != 0) {
+					if (j != 0) {
 						matrix[0][j] = 0;
-					}else {
+					} else {
 						col0 = 0;
 					}
-					
+
 				}
 			}
 		}
-		
-		
+
 		for (int i = 1; i < rowLen; i++) {
 			for (int j = 1; j < colLen; j++) {
 				if (matrix[i][j] != 0) {
-					if(matrix[0][j] == 0 || matrix[i][0] == 0) {
+					if (matrix[0][j] == 0 || matrix[i][0] == 0) {
 						matrix[i][j] = 0;
 					}
 				}
 			}
 		}
-		
-		if(matrix[0][0] == 0) {
-			for(int j = 0; j< colLen ; j++) matrix[0][j] = 0;
+
+		if (matrix[0][0] == 0) {
+			for (int j = 0; j < colLen; j++)
+				matrix[0][j] = 0;
 		}
-		
-		if(col0 == 0) {
-			for(int i = 0; i< rowLen ; i++) matrix[i][0] = 0;
+
+		if (col0 == 0) {
+			for (int i = 0; i < rowLen; i++)
+				matrix[i][0] = 0;
 		}
 	}
 

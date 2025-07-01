@@ -1,7 +1,6 @@
 package com.dsa_series.roadmap.binary_search_trees.FAQs;
 
 /*Author: keshav122 */
-package com.roadmap.binary_search_trees.FAQs;
 
 import java.util.ArrayList;
 import java.util.HashMap;

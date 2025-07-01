@@ -1,5 +1,7 @@
 package com.leetcode_practice.problems.medium;
 
+import java.util.Arrays;
+
 public class NumberOfSubSequencesThatSatisyTheGivenCondition_1498 {
     public int numSubseq(int[] nums, int target) {
         Arrays.sort(nums);
@@ -23,6 +25,5 @@ public class NumberOfSubSequencesThatSatisyTheGivenCondition_1498 {
             }
         }
         return subSequences;
-
     }
 }

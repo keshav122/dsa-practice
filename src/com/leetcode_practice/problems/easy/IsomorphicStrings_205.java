@@ -1,7 +1,6 @@
 package com.leetcode_practice.problems.easy;
 
 /*Author: keshav122 */
-package com.problems.easy;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -50,9 +49,10 @@ public class IsomorphicStrings_205 {
 	}
 
 	public boolean isIsomorphic_2(String s, String t) {
-		//TODO Write the optimal code for  this
-		 return false;
+		// TODO Write the optimal code for this
+		return false;
 	}
+
 	public static void main(String[] args) {
 		String s = "badc";
 		String t = "baba";
