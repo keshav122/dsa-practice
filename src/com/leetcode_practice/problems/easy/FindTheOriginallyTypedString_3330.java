@@ -17,4 +17,14 @@ public class FindTheOriginallyTypedString_3330 {
         totalLength += currentCharCount - 1;
         return totalLength;
     }
+
+    public int possibleStringCount_Cleaner(String word) {
+        int totalLength = 1;
+        for (int i = 1; i < word.length(); i++) {
+            if (word.charAt(i) == word.charAt(i - 1)) {
+                totalLength++;
+            }
+        }
+        return totalLength;
+    }
 }
