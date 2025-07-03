@@ -2,7 +2,7 @@ import os
 import random
 
 # Define the directory containing the code files
-directories = ['CodeStudio', 'Contests', 'DSA_Series', 'Exercism', 'LeetCode_Practice', 'Webinars']
+directories = ['src']
 
 # Define the author name to be added
 author_name = 'keshav122'
