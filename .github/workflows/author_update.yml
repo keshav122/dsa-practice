@@ -30,7 +30,7 @@ jobs:
 
       - name: Create a new branch
         run: |
-          BRANCH_NAME="update-author-$(date +%Y%m%d)"
+          BRANCH_NAME="update-author-$(date +%Y%m%d-%H%M%S)"
           echo "BRANCH_NAME=$BRANCH_NAME" >> $GITHUB_ENV
           git checkout -b $BRANCH_NAME
 
