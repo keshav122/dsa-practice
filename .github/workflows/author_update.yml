@@ -72,6 +72,4 @@ jobs:
                 merge_method: 'merge',
               });
             }
-    env:
-      BRANCH_NAME: ${{ env.BRANCH_NAME }}
       
