@@ -75,6 +75,29 @@ public class MinimizeMaxDistToGasStations {
         return pq.peek().sectionLength;
     }
 
+    // Priority Queue without the pair class
+    public double minimiseMaxDistance_Better(int[] arr, int k) {
+        int n = arr.length;
+        int[] howMany = new int[n - 1];
+        // Max heap of double [] :{dist,sectionIndex}
+        PriorityQueue<double[]> pq = new PriorityQueue<>((a, b) -> Double.compare(b[0], a[0]));
+        for (int i = 0; i < n - 1; i++) {
+            double distance = arr[i + 1] - arr[i];
+            pq.offer(new double[] { distance, i });
+        }
+
+        for (int gasStation = 1; gasStation <= k; gasStation++) {
+            double top[] = pq.poll();
+            int sectionIndex = (int) top[1];
+            howMany[sectionIndex]++;
+            double initialDist = arr[sectionIndex + 1] - arr[sectionIndex];
+            double newSectionLen = initialDist / (double) (howMany[sectionIndex] + 1);
+            pq.offer(new double[] { newSectionLen, sectionIndex });
+        }
+
+        return pq.peek()[0];
+    }
+
     public double minimiseMaxDistance_MostOptimalBinarySearchSolution(int[] arr, int k) {
         double low = 0;
         double high = 0;

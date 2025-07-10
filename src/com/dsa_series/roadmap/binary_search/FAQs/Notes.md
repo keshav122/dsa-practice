@@ -48,3 +48,39 @@ public double median(int[] arr1, int[] arr2) {
     }
 
 ```
+
+# Minimize Max Distance To Gas Station
+Brute Force Solution
+- The first thing to note is that we will not place the gas stations outside the given places as it will never reduce the distance already present between the existing gas stations.
+- We can divide the whole arr into (n-1) sectors and keep a track of how many gasstations are placed in each of the sectors
+- The sectionLength or the distance between the gasstation is equal to 
+(arr[i+1] - arr[i])/(howMany[i] + 1)
+- For each gasStation 1 to k
+       We will iterate over the array.
+       Calculate the sectionLength by (diff/(double)(howMany[i] + 1)) -- make sure to add double to avoid calculation mistakes
+       Once the maxIndex is found - one with the maxSectionLength - we will place the new gasStation in that index
+- We will once again iterate over the array to find the maxSectionLength
+
+
+# For the better approach :
+We can use the Priority Queue for finding out the maxSectionLength quickly.
+
+# Optimal approach - Binary Search
+While applying binary search for long double problems
+
+```
+- while(high - low > precision) ---- for eg while(high - low > 10^-6){
+          low = mid
+          high = mid
+}
+```
+- if(cnt of GasStations(req) > k) low = mid;
+   else ans = high , high = mid; Or as high was storing the last feasible answer value
+   we can also return high.
+
+- Also if we (1/0.5) = 2 which means that we can place 2 gas station which is wrong as we will place only 1 station. So if it is exactly divisible we need to reduce the count by 1
+ int numberInBetween = (arr[i] - arr[i-1])/dist;
+ if(arr[i]-arr[i-1]/dist == numberInBetwen * dist) {
+    numberInBetween--;
+ }
+  
