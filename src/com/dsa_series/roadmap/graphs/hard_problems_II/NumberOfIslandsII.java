@@ -60,7 +60,7 @@ class DisjointSet {
         rank = new int[n + 1];
         parent = new int[n + 1];
         Arrays.fill(size, 1);
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i <= n; i++) {
             parent[i] = i;
         }
     }
@@ -79,10 +79,10 @@ class DisjointSet {
         if (ult_u == ult_v)
             return;
 
-        if (ult_u < ult_v) {
+        if (rank[ult_u] < rank[ult_v]) {
             parent[ult_u] = ult_v;
             rank[ult_v]++;
-        } else if (ult_u > ult_v) {
+        } else if (rank[ult_u] > rank[ult_v]) {
             parent[ult_v] = ult_u;
             rank[ult_u]++;
         } else {
@@ -98,10 +98,10 @@ class DisjointSet {
         if (ult_u == ult_v)
             return;
 
-        if (ult_u < ult_v) {
+        if (size[ult_u] < size[ult_v]) {
             parent[ult_u] = ult_v;
             size[ult_v] += size[ult_u];
-        } else if (ult_v < ult_u) {
+        } else {
             parent[ult_v] = ult_u;
             size[ult_v] += size[ult_u];
         }
