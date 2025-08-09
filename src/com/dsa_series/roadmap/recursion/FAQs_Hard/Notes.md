@@ -24,3 +24,11 @@ private void partitions(int index, String s, List<String>  ans , List<List<Strin
 # Word Search 
 The key here is to only start in cases where you have matched the first character. 
 The second important thing is to mark the character which you have already visited as empty for the current iteration so that you don't run into a infinite loop or select the same character more than once.
+
+# N Queens
+
+
+# M Coloring
+
+We create the adjacency list. Then we take a colors arr of number of vertices. Then we start coloring and see if the adjacent nodes can be colored . If we reach the end of the nodes 
+we return true.
