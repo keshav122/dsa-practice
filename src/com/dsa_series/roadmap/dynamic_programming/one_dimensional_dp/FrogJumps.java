@@ -21,7 +21,7 @@ public class FrogJumps {
 
     public int frogJump_Memoization(int[] heights) {
         int n = heights.length;
-        int[] dp = new int[n + 1];
+        int[] dp = new int[n];
         Arrays.fill(dp, -1);
         return frogJump(heights, n - 1, dp);
     }
@@ -45,12 +45,14 @@ public class FrogJumps {
             return 0;
         if (n == 2)
             return Math.abs(heights[1] - heights[0]);
-        int[] dp = new int[n + 1];
+        int[] dp = new int[n];
         dp[0] = 0;
-        dp[1] = Math.abs(heights[1] - heights[0]);
-        for (int i = 2; i < n; i++) {
+        for (int i = 1; i < n; i++) {
             int left = dp[i - 1] + Math.abs(heights[i] - heights[i - 1]);
-            int right = dp[i - 2] + Math.abs(heights[i] - heights[i - 2]);
+            int right = Integer.MAX_VALUE;
+            if (i > 1) {
+                right = dp[i - 2] + Math.abs(heights[i] - heights[i - 2]);
+            }
             dp[i] = Math.min(left, right);
         }
         return dp[n - 1];
