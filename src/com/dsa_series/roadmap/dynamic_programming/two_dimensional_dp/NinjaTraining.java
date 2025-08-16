@@ -70,6 +70,9 @@ public class NinjaTraining {
                 dp[day][last] = 0;
                 for (int task = 0; task < 3; task++) {
                     if (task != last) {
+                        // dp[day-1][task] because you are sending the info
+                        // that you did the task on current day and then adding the
+                        // result upto day -1
                         int points = dp[day - 1][task] + matrix[day][task];
                         dp[day][last] = Math.max(dp[day][last], points);
                     }
