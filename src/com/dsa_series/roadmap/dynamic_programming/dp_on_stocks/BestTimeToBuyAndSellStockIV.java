@@ -62,6 +62,8 @@ public class BestTimeToBuyAndSellStockIV {
         return dp[0][1][k];
     }
 
+    // Fix this
+    // [1,2,4,2,5,7,2,4,9,0] k= 4 , Expected op = 15
     public int stockBuySell_Tabulation_SO(int[] arr, int n, int k) {
         int[][] after = new int[2][3];
         int[][] curr = new int[2][3];
