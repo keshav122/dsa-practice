@@ -51,5 +51,6 @@ public class Abstraction_Constructor_Flow {
 
     public static void main(String[] args) {
         ManualCar mc = new ManualCar();
+        mc.start();
     }
 }
