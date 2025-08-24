@@ -2,6 +2,9 @@ package com.dsa_series.roadmap.dynamic_programming.dp_on_subsequences;
 
 import java.util.Arrays;
 
+private class T{
+    
+}
 public class PartitionEqualsSubsetSum {
 
     // 0 to n
