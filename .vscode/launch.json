@@ -2,6 +2,41 @@
     "configurations": [
         {
             "type": "java",
+            "name": "DiagonalTraverse_498",
+            "request": "launch",
+            "mainClass": "com.leetcode_practice.problems.medium.DiagonalTraverse_498",
+            "projectName": "DataStructuresAndAlgorithms"
+        },
+        {
+            "type": "java",
+            "name": "AnonymousInnerClass_UseCase",
+            "request": "launch",
+            "mainClass": "com.dsa_series.roadmap.oops.advanced_oops_features.inner_classes.AnonymousInnerClass_UseCase",
+            "projectName": "DataStructuresAndAlgorithms"
+        },
+        {
+            "type": "java",
+            "name": "AnonymousInnerClass",
+            "request": "launch",
+            "mainClass": "com.dsa_series.roadmap.oops.advanced_oops_features.inner_classes.AnonymousInnerClass",
+            "projectName": "DataStructuresAndAlgorithms"
+        },
+        {
+            "type": "java",
+            "name": "LocalInnerClass",
+            "request": "launch",
+            "mainClass": "com.dsa_series.roadmap.oops.advanced_oops_features.inner_classes.LocalInnerClass",
+            "projectName": "DataStructuresAndAlgorithms"
+        },
+        {
+            "type": "java",
+            "name": "NonStaticInnerClass",
+            "request": "launch",
+            "mainClass": "com.dsa_series.roadmap.oops.advanced_oops_features.NonStaticInnerClass",
+            "projectName": "DataStructuresAndAlgorithms"
+        },
+        {
+            "type": "java",
             "name": "DetectALoopInLL",
             "request": "launch",
             "mainClass": "DSA_Series/com.roadmap.linkedlist.FAQs_Medium.DetectALoopInLL",
