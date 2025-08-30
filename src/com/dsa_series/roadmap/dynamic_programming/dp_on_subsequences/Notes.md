@@ -13,6 +13,10 @@ Thumb rule :
 
  Tabulation will bottonm -up (Bottom up doesnt necessarily mean that it will start from 0). It means that we start from the base case.
 
+
  # Partition Equals Subset Sum
  Don't expand into leftSubsetSum & rightSubSetSum . If you have the leftSubSetSum , we already have the rightSubSetSum.
  Also the leftSum should be equal to (sum/2) => this reduces the question to subset sum equals to target.
+
+
+ 
