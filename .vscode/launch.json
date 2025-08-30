@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "AssociationOnetoOne",
+            "request": "launch",
+            "mainClass": "com.dsa_series.roadmap.oops.relationships_and_object_behaviors.AssociationOnetoOne",
+            "projectName": "DataStructuresAndAlgorithms"
+        },
+        {
+            "type": "java",
             "name": "DiagonalTraverse_498",
             "request": "launch",
             "mainClass": "com.leetcode_practice.problems.medium.DiagonalTraverse_498",
