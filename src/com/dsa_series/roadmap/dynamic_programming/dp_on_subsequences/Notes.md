@@ -19,4 +19,7 @@ Thumb rule :
  Also the leftSum should be equal to (sum/2) => this reduces the question to subset sum equals to target.
 
 
+# Minimum Coins
+Whenever there are questions with points like infinite supply/mutiple choices in the case where we are choosing the elements we don't move the index back unless the current value index cannot be no longer used.
+
  
