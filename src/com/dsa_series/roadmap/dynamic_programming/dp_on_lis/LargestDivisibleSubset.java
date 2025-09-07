@@ -2,20 +2,19 @@ package com.dsa_series.roadmap.dynamic_programming.dp_on_lis;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 public class LargestDivisibleSubset {
     public List<Integer> largestDivisibleSubset(int[] nums) {
         int n = nums.length;
+        Arrays.sort(nums);
         int[] dp = new int[n], hash = new int[n];
         Arrays.fill(dp, 1);
         int lastIndex = 0, maxi = 1;
-        for (int i = 0; i < n; i++) {
+        for (int i = 1; i < n; i++) {
             hash[i] = i;
             for (int prev = 0; prev < i; prev++) {
-                boolean isDivisible = (nums[i] % nums[prev] == 0) || (nums[prev] % nums[i] == 0);
-                if (isDivisible && 1 + dp[prev] > dp[i]) {
+                if (nums[i] % nums[prev] == 0 && 1 + dp[prev] > dp[i]) {
                     hash[i] = prev;
                     dp[i] = 1 + dp[prev];
                 }
@@ -31,7 +30,17 @@ public class LargestDivisibleSubset {
             lastIndex = hash[lastIndex];
             ans.add(nums[lastIndex]);
         }
-        Collections.reverse(ans);
         return ans;
+    }
+
+    public static void main(String[] args) {
+        int[] nums = { 54, 72, 18, 72, 6, 54 };
+        LargestDivisibleSubset obj = new LargestDivisibleSubset();
+        List<Integer> li = obj.largestDivisibleSubset(nums);
+        System.out.println(li.size());
+        for (int num : li) {
+            System.out.print(num + " ");
+        }
+
     }
 }
