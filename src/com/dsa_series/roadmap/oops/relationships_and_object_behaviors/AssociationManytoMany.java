@@ -5,32 +5,27 @@ import java.util.List;
 
 class Student {
     private String name;
-    private String id;
+    private List<Course> courses;
 
-    Student(String name, String id) {
+    public Student(String name) {
         this.name = name;
-        this.id = id;
+        courses = new ArrayList<>();
     }
 
-    public void displayDetails() {
-        System.out.println("Student Name : " + name);
+    public void addCourse(Course course) {
+        courses.add(course);
     }
 
     public String getName() {
         return name;
     }
-
-    public String getId() {
-        return id;
-    }
 }
 
-class College {
-
+class Course {
     private String name;
     private List<Student> students;
 
-    College(String name) {
+    public Course(String name) {
         this.name = name;
         students = new ArrayList<>();
     }
@@ -39,14 +34,14 @@ class College {
         students.add(student);
     }
 
-    public void printAllStudents() {
+    public void displayAllStudents() {
         for (int i = 0; i < students.size(); i++) {
-            Student student = students.get(i);
-            System.out.println("Name " + student.getName() + " id : " + student.getId());
+            System.out.println("Name : " + students.get(i).getName());
         }
     }
+
 }
 
-public class AssociationOnetoMany {
+public class AssociationManytoMany {
 
 }
