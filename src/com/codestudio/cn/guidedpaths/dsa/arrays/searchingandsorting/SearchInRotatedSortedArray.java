@@ -1,8 +1,5 @@
 /*Author: keshav122 */
-/*Author: keshav122 */
 package com.codestudio.cn.guidedpaths.dsa.arrays.searchingandsorting;
-
-/*Author: keshav122 */
 
 public class SearchInRotatedSortedArray {
 
@@ -31,7 +28,7 @@ public class SearchInRotatedSortedArray {
 	}
 
 	private static int binarySearch(int[] arr, int sI, int eI, int key) {
-		if(eI < sI){
+		if (eI < sI) {
 			return -1;
 		}
 		while (sI <= eI) {
@@ -48,26 +45,28 @@ public class SearchInRotatedSortedArray {
 	}
 
 	private static int pivotIndex(int[] arr, int low, int high) {
-		if(high < low){
+		if (high < low) {
 			return -1;
 		}
-		
-		if(high == low){
+
+		if (high == low) {
 			return low;
 		}
-		
-		int mid = low + (high-low)/2;
-		if(mid < high && arr[mid] > arr[mid+1]){
+
+		int mid = low + (high - low) / 2;
+		if (mid < high && arr[mid] > arr[mid + 1]) {
 			return mid;
 		}
-		if(mid > low && arr[mid] < arr[mid-1]){
-			return mid-1;
+		if (mid > low && arr[mid] < arr[mid - 1]) {
+			return mid - 1;
 		}
-		//If the element at mid is less than low then elements on the left of mid will be greater than mid 
-		// and we will look for the transition from larger to smaller element in the left region of the mid
-		if(arr[low] >= arr[mid]){
-			return pivotIndex(arr, low, mid-1);
+		// If the element at mid is less than low then elements on the left of mid will
+		// be greater than mid
+		// and we will look for the transition from larger to smaller element in the
+		// left region of the mid
+		if (arr[low] >= arr[mid]) {
+			return pivotIndex(arr, low, mid - 1);
 		}
-		return pivotIndex(arr, mid+1, high);
+		return pivotIndex(arr, mid + 1, high);
 	}
 }
