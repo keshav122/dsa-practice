@@ -1,5 +1,4 @@
 /*Author: keshav122 */
-/*Author: keshav122 */
 package com.leetcode_practice.problems.easy;
 
 public class SumOfDigitsAfterConvert_1945 {

@@ -1,5 +1,4 @@
 /*Author: keshav122 */
-/*Author: keshav122 */
 package com.dsa_series.roadmap.stacks_and_queues.FAQs;
 
 import java.util.LinkedList;
@@ -25,17 +24,17 @@ public class SlidingWindowMaximum {
         int[] ans = new int[n - k + 1];
         int ansIndex = 0;
         Deque<Integer> dq = new LinkedList<>();
-        for(int i = 0; i< n ;i++){   
-            if(!dq.isEmpty() && dq.peekFirst() <= i-k){
+        for (int i = 0; i < n; i++) {
+            if (!dq.isEmpty() && dq.peekFirst() <= i - k) {
                 dq.pollFirst();
-            }  
-            while(!dq.isEmpty() && arr[dq.peekLast()] <= arr[i]){
+            }
+            while (!dq.isEmpty() && arr[dq.peekLast()] <= arr[i]) {
                 dq.pollLast();
             }
             dq.offerLast(i);
-            if(i >= k-1){
-              ans[ansIndex] = arr[dq.peekFirst()];
-              ansIndex++;
+            if (i >= k - 1) {
+                ans[ansIndex] = arr[dq.peekFirst()];
+                ansIndex++;
             }
         }
         return ans;
