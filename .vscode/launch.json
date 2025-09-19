@@ -2,6 +2,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "FileIntro",
+            "request": "launch",
+            "mainClass": "com.dsa_series.roadmap.oops.advance_programming_in_oops.FileIntro",
+            "projectName": "DataStructuresAndAlgorithms"
+        },
+        {
+            "type": "java",
+            "name": "ExceptionHandling",
+            "request": "launch",
+            "mainClass": "com.dsa_series.roadmap.oops.advance_programming_in_oops.ExceptionHandling",
+            "projectName": "DataStructuresAndAlgorithms"
+        },
+        {
+            "type": "java",
+            "name": "ShallowCloning",
+            "request": "launch",
+            "mainClass": "com.dsa_series.roadmap.oops.relationships_and_object_behaviors.ShallowCloning",
+            "projectName": "DataStructuresAndAlgorithms"
+        },
+        {
+            "type": "java",
             "name": "AssociationOnetoOne",
             "request": "launch",
             "mainClass": "com.dsa_series.roadmap.oops.relationships_and_object_behaviors.AssociationOnetoOne",
