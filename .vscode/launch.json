@@ -2,6 +2,34 @@
     "configurations": [
         {
             "type": "java",
+            "name": "DependencyInversionPrinciple",
+            "request": "launch",
+            "mainClass": "com.dsa_series.roadmap.oops.oops_design_and_lifecycle_mgt.DependencyInversionPrinciple",
+            "projectName": "DataStructuresAndAlgorithms"
+        },
+        {
+            "type": "java",
+            "name": "LoggingClassExample",
+            "request": "launch",
+            "mainClass": "com.dsa_series.roadmap.oops.advance_programming_in_oops.LoggingClassExample",
+            "projectName": "DataStructuresAndAlgorithms"
+        },
+        {
+            "type": "java",
+            "name": "FileReaderExample",
+            "request": "launch",
+            "mainClass": "com.dsa_series.roadmap.oops.advance_programming_in_oops.FileReaderExample",
+            "projectName": "DataStructuresAndAlgorithms"
+        },
+        {
+            "type": "java",
+            "name": "FileWriterExample",
+            "request": "launch",
+            "mainClass": "com.dsa_series.roadmap.oops.advance_programming_in_oops.FileWriterExample",
+            "projectName": "DataStructuresAndAlgorithms"
+        },
+        {
+            "type": "java",
             "name": "FileIntro",
             "request": "launch",
             "mainClass": "com.dsa_series.roadmap.oops.advance_programming_in_oops.FileIntro",
