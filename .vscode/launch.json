@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "RabinKarpAlgorithm",
+            "request": "launch",
+            "mainClass": "com.dsa_series.roadmap.strings_advanced_algo.advanced_problems.RabinKarpAlgorithm",
+            "projectName": "DataStructuresAndAlgorithms"
+        },
+        {
+            "type": "java",
             "name": "DependencyInversionPrinciple",
             "request": "launch",
             "mainClass": "com.dsa_series.roadmap.oops.oops_design_and_lifecycle_mgt.DependencyInversionPrinciple",
