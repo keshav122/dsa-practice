@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "PrimeFactorisationOfANumber",
+            "request": "launch",
+            "mainClass": "com.dsa_series.roadmap.maths.PrimeFactorisationOfANumber",
+            "projectName": "DataStructuresAndAlgorithms"
+        },
+        {
+            "type": "java",
             "name": "RabinKarpAlgorithm",
             "request": "launch",
             "mainClass": "com.dsa_series.roadmap.strings_advanced_algo.advanced_problems.RabinKarpAlgorithm",
