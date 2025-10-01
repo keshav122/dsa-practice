@@ -31,7 +31,7 @@ In each iteration,  select an element from the unsorted part of the array using 
 
 1. Place this element in it's correct position within the sorted part of the array. 
 2. Use an inner loop to shift the remaining elements as necessary to accommodate the seleted element. 
-3. This involves swapping until the selected element is in it's correct position. 
+3. This involves shifting until the selected element is in it's correct position. 
 4. Continue this process until the array is sorted 
 
 
@@ -67,8 +67,8 @@ Pseudocode:
             pivotElem = arr[low]
             int i = low , j = high;
             while(i< j):
-                while(arr[i] <= arr[pivot] && i< high) {i++};
-                while(arr[j] > arr[pivot] && j> low) {j--};
+                while(arr[i] <= pivotElem && i< high) {i++};
+                while(arr[j] > pivotElem && j> low) {j--};
                 if(i<j) swap(arr[i],arr[j])
             
             swap(arr[low],arr[j]);
