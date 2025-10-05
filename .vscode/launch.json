@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "EagerLoading_Sol_1",
+            "request": "launch",
+            "mainClass": "com.low_level_design.design_patterns.creational_patterns.singleton.EagerLoading_Sol_1",
+            "projectName": "DataStructuresAndAlgorithms"
+        },
+        {
+            "type": "java",
             "name": "PrimeFactorisationOfANumber",
             "request": "launch",
             "mainClass": "com.dsa_series.roadmap.maths.PrimeFactorisationOfANumber",
