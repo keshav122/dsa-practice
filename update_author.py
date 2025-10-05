@@ -7,14 +7,22 @@ directories = ['src']
 # Define the author name to be added
 author_name = 'keshav122'
 
-# Function to add the author comment at the class level for Java files
+def java_has_author(file_path, author_name):
+    with open(file_path, 'r') as file:
+        content = file.read()
+        return f'Author: {author_name}' in content
+
+def nonjava_has_author(file_path, author_name):
+    with open(file_path, 'r') as file:
+        content = file.read()
+        return f'Author: {author_name}' in content
+
 def add_author_comment_to_java(file_path, author_name):
     with open(file_path, 'r+') as file:
         content = file.read()
         file.seek(0, 0)
         file.write(f'/*Author: {author_name} */\n{content}')
 
-# Function to append the author comment for non-Java files
 def append_author_comment(file_path, author_name):
     with open(file_path, 'a') as file:
         file.write(f'\n# Author: {author_name}\n')
@@ -26,13 +34,18 @@ for directory in directories:
         for filename in filenames:
             files.append(os.path.join(root, filename))
 
-# Select a random file from the list
-file_to_update = random.choice(files)
+random.shuffle(files)  # Shuffle to randomize selection order
 
-# Check the file extension and update the file with the appropriate author comment
-if file_to_update.endswith('.java'):
-    add_author_comment_to_java(file_to_update, author_name)
+for file_to_update in files:
+    if file_to_update.endswith('.java'):
+        if not java_has_author(file_to_update, author_name):
+            add_author_comment_to_java(file_to_update, author_name)
+            print(f'Updated author name in file: {file_to_update}')
+            break
+    else:
+        if not nonjava_has_author(file_to_update, author_name):
+            append_author_comment(file_to_update, author_name)
+            print(f'Updated author name in file: {file_to_update}')
+            break
 else:
-    append_author_comment(file_to_update, author_name)
-
-print(f'Updated author name in file: {file_to_update}')
+    print('No file needed updating. Author already present in all files.')
