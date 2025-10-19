@@ -71,4 +71,11 @@ class BurgerMeal {
 
 public class BuilderPatternSol {
 
+    public static void main(String[] args) {
+        // BurgerBuilder is an inner static class
+        // This is how we create the object of an inner static class
+        BurgerMeal burgerMeal = new BurgerMeal.BurgerBuilder("wheat", "veg").build();
+        BurgerMeal burgerMealWithCheeseAndFries = new BurgerMeal.BurgerBuilder("wheat", "veg").withCheese(true)
+                .withSide("fries").build();
+    }
 }
