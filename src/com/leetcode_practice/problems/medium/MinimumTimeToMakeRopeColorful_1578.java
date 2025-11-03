@@ -68,7 +68,7 @@ public class MinimumTimeToMakeRopeColorful_1578 {
         return time;
     }
 
-    public int minCost_optiml(String colors, int[] neededTime) {
+    public int minCost_optimal(String colors, int[] neededTime) {
         int totalTime = 0;
         int maxTime = neededTime[0];
 
