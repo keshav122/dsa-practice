@@ -1,1 +1,2 @@
 SumOfArrayProductOfMagicalSequences_3539
+# Author: keshav122
