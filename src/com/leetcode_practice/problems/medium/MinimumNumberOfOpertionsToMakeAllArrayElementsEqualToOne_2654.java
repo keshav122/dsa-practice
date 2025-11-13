@@ -1,6 +1,6 @@
 package com.leetcode_practice.problems.medium;
 
-public class MinimumArrayElementsEqualToOne_2654 {
+public class MinimumNumberOfOpertionsToMakeAllArrayElementsEqualToOne_2654 {
     public int minOperations(int[] nums) {
         int n = nums.length;
         int oneCount = 0;
