@@ -1,3 +1,4 @@
+/*Author: keshav122 */
 package com.webinars.lld.lecture.streams_and_lambdas.functional_interface;
 
 public interface DemoInterface {
