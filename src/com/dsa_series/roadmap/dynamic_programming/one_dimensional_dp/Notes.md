@@ -4,3 +4,4 @@
 3. Sum of all stuffs -> If the problem is of count all ways.
    Or
    Min of all stuffs -> If the problem is of finding min.
+# Author: keshav122
