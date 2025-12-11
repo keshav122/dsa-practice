@@ -4,14 +4,41 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MakeSumDivisibleByP_1590 {
-    public int minSubarray(int[] nums, int p) {
+
+    public int minSubarray_BF(int[] nums, int p) {
+        int n = nums.length;
         long sum = 0;
         for (int num : nums) {
             sum += num;
         }
-        long subArraySum = sum % p;
-        if (subArraySum == 0)
+        if (sum % p == 0)
             return 0;
+        int minLen = Integer.MAX_VALUE;
+        for (int i = 0; i < n; i++) {
+            long curr = 0;
+            for (int j = i; j < Math.min(n, i + n - 1); j++) {
+                curr += nums[j];
+                if ((sum - curr) % p == 0) {
+                    minLen = Math.min(minLen, j - i + 1);
+                }
+            }
+        }
+        return minLen == Integer.MAX_VALUE ? -1 : minLen;
+
+    }
+
+    public int minSubarray(int[] nums, int p) {
+        int n = nums.length;
+        long sum = 0;
+        for (int num : nums) {
+            sum += num;
+        }
+        int mod = (int) (sum % p);
+        if (mod == 0)
+            return 0;
+
+        // We need to fin min Length subarray whose sum is divisible by mod
+
         return minLenSubArraySum(nums, subArraySum);
     }
 
