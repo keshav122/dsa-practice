@@ -53,17 +53,24 @@ public class CountSpecialTriplets_3583 {
         return count;
     }
 
+    // Working Solution
     public int specialTriplets(int[] nums) {
-        int MOD = (int)(1e9) + 7;
-        int n = nums.length;
-        Map<Integer, Long> freqPrev = new HashMap<>();
-        Map<Integer, Long> freqNext = new HashMap<>();
+        int MOD = (int) (1e9) + 7;
+        Map<Integer, Integer> freqPrev = new HashMap<>();
+        Map<Integer, Integer> freqNext = new HashMap<>();
         for (int num : nums) {
-            freqNext.put(num, freqNext.getOrDefault(num, 0L) + 1);
+            freqNext.put(num, freqNext.getOrDefault(num, 0) + 1);
         }
 
-        int count = 0;
-        for(int i = 0; i< )
-
+        long count = 0;
+        for (int i = 0; i < nums.length; i++) {
+            int twice = 2 * nums[i];
+            freqNext.put(nums[i], freqNext.get(nums[i]) - 1);
+            int countBefore = freqPrev.getOrDefault(twice, 0);
+            long countAfter = freqNext.getOrDefault(twice, 0);
+            count = (count + (countAfter * countBefore)) % MOD;
+            freqPrev.put(nums[i], freqPrev.getOrDefault(nums[i], 0) + 1);
+        }
+        return (int) count;
     }
 }
