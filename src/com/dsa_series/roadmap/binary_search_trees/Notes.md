@@ -36,3 +36,4 @@ To maintain efficiency, self-balancing BSTs exist:
 ✅ **Database Indexing** (efficient lookups)  
 ✅ **Symbol Tables** (compilers, interpreters)  
 ✅ **Memory Management** (heap structures) 
+# Author: keshav122
