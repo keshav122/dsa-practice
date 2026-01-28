@@ -189,3 +189,4 @@ There can be three scenarios , both are in left , both are in right , left in 1s
 If a[left] > a[right] => swap
 If right crosses boundary(len) , readjust gap to ceil(gap/2) achived by
 gap = (gap/2) + (gap%2) 
+# Author: keshav122
