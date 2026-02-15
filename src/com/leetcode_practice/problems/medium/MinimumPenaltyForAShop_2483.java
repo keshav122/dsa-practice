@@ -1,3 +1,4 @@
+/*Author: keshav122 */
 package com.leetcode_practice.problems.medium;
 
 public class MinimumPenaltyForAShop_2483 {
