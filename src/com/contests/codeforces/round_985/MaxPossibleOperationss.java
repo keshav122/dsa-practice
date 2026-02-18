@@ -4,7 +4,7 @@ package com.contests.codeforces.round_985;
 /*Author: keshav122 */
 import java.util.Scanner;
 
-public class Set {
+public class MaxPossibleOperationss {
     public static void main(String[] args) {
         try {
             Scanner s = new Scanner(System.in);
@@ -21,7 +21,7 @@ public class Set {
         }
     }
 
-    private static int getMaxOperationsPossible(long left, long right, int k) {
+    private static int getMaxOperationsPossible(long left, long right, long k) {
         int ans = 0;
         long low = left;
         long high = right;
