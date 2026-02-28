@@ -1,6 +1,6 @@
 package com.leetcode_practice.contest.biweekly.count_177;
 
-public class MergeCloseCharacters {
+public class MergeCloseCharacters_3853 {
     public static String mergeCharacters(String s, int k) {
         int n = s.length();
         char[] arr = s.toCharArray();
