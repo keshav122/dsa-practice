@@ -2,6 +2,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "MinimumBitWiseOrFromGrid",
+            "request": "launch",
+            "mainClass": "com.leetcode_practice.contest.weekly.count_491.MinimumBitWiseOrFromGrid",
+            "projectName": "DataStructuresAndAlgorithms"
+        },
+        {
+            "type": "java",
+            "name": "CountSubArrays",
+            "request": "launch",
+            "mainClass": "com.leetcode_practice.contest.weekly.count_491.CountSubArrays",
+            "projectName": "DataStructuresAndAlgorithms"
+        },
+        {
+            "type": "java",
             "name": "PrototypeSol",
             "request": "launch",
             "mainClass": "com.low_level_design.design_patterns.creational_patterns.prototype.PrototypeSol",
