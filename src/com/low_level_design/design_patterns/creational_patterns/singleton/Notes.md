@@ -138,3 +138,4 @@ Special Cases to Avoid Race Conditions: In multi-threaded environments, care mus
 Violates the Single Responsibility Principle (SRP): A Singleton often handles both instance control and its core functionality, thereby violating the SRP, a key principle of clean software design.
 Conclusion
 The Singleton pattern can be a powerful tool when used appropriately, particularly for managing global states and shared resources. However, developers should be mindful of its drawbacks, especially regarding testing and maintainability. Consider alternatives or enhanced implementations (like dependency injection) where appropriate to maintain clean and scalable codebases.
+# Author: keshav122
