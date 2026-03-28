@@ -3,7 +3,7 @@ package com.leetcode_practice.problems.easy;
 import java.util.HashMap;
 import java.util.Map;
 
-public class FindLuckyIntegerInAnArray_1392 {
+public class FindLuckyIntegerInAnArray_1394 {
     public int findLucky(int[] arr) {
         Map<Integer, Integer> freqMap = new HashMap<>();
         for (int a : arr) {

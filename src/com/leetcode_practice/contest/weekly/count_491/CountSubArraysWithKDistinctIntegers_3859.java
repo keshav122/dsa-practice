@@ -15,51 +15,43 @@ Within the subarray, each distinct integer appears at least m times. */
 public class CountSubArraysWithKDistinctIntegers_3859 {
     public long countSubarrays(int[] nums, int k, int m) {
         long ans = 0;
-        int l = 0, r = 0, n = nums.length;
-        Map<Integer, Integer> map = new HashMap<>();
-        Set<Integer> set = new HashSet<>();
-        while (r < n) {
-            map.put(nums[r], map.getOrDefault(nums[r], 0) + 1);
-            set.add(nums[r]);
-            if (set.size() == k && count(set, map, m)) {
-                ans++;
+        Map<Integer, Integer> freq = new HashMap<>();
+        int l = 0, distinct = 0, good = 0, extra = 0;
+        for (int r = 0; r < nums.length; r++) {
+            int x = nums[r];
+            freq.put(x, freq.getOrDefault(x, 0) + 1);
+
+            if (freq.get(x) == 1)
+                distinct++;
+            if (freq.get(x) == m)
+                good++;
+
+            while (distinct > k) {
+                int y = nums[l++];
+                extra = 0;
+
+                if (freq.get(y) == m)
+                    good--;
+                freq.put(y, freq.get(y) - 1);
+
+                if (freq.get(y) == 0) {
+                    freq.remove(y);
+                    distinct--;
+                }
+
             }
 
-            while (set.size() > k && l < r) {
-                map.put(nums[l], map.get(nums[l]) - 1);
-                if (map.get(nums[l]) <= 0) {
-                    map.remove(nums[l]);
-                    set.remove(nums[l]);
-                }
-                if (set.size() == k && count(set, map, m)) {
-                    ans++;
-                }
+            while (distinct == k && good == k && freq.get(nums[l]) > m) {
+                freq.put(nums[l], freq.get(nums[l]) - 1);
                 l++;
+                extra++;
             }
 
-            r++;
-        }
-        while (set.size() >= k && l < n) {
-            map.put(nums[l], map.get(nums[l]) - 1);
-            if (map.get(nums[l]) <= 0) {
-                map.remove(nums[l]);
-                set.remove(nums[l]);
+            if (distinct == k && good == k) {
+                ans += extra + 1;
             }
-            if (set.size() == k && count(set, map, m)) {
-                ans++;
-            }
-            l++;
         }
-
         return ans;
-    }
-
-    private boolean count(Set<Integer> set, Map<Integer, Integer> map, int m) {
-        for (Integer i : set) {
-            if (!map.containsKey(i) || map.get(i) < m)
-                return false;
-        }
-        return true;
     }
 
     public static void main(String[] args) {
