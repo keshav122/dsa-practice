@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "P2",
+            "request": "launch",
+            "mainClass": "com.leetcode_practice.contest.biweekly.count_179.P2",
+            "projectName": "DataStructuresAndAlgorithms"
+        },
+        {
+            "type": "java",
             "name": "MinimumBitWiseOrFromGrid",
             "request": "launch",
             "mainClass": "com.leetcode_practice.contest.weekly.count_491.MinimumBitWiseOrFromGrid",
