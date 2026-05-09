@@ -1,3 +1,4 @@
+/*Author: keshav122 */
 package com.low_level_design.design_patterns.creational_patterns.singleton.thread_safety;
 
 class JudgeAnalytics {
