@@ -1,5 +1,7 @@
 package com.dsa_series.roadmap.beginnerproblems.basic_strings;
 
+import java.util.Arrays;
+
 public class LongestCommonPrefix {
     public String longestCommonPrefix(String[] str) {
         StringBuilder prefixString = new StringBuilder();
@@ -21,5 +23,32 @@ public class LongestCommonPrefix {
             j++;
         }
         return prefixString.toString();
+    }
+
+    public String longestCommonPrefix_better(String[] str) {
+        StringBuilder prefix = new StringBuilder();
+        for (int i = 0; i < str[0].length(); i++) {
+            char ch = str[0].charAt(i);
+            for (String s : str) {
+                if (s.length() == i || s.charAt(i) != ch) {
+                    return prefix.toString();
+                }
+            }
+            prefix.append(ch);
+        }
+        return prefix.toString();
+    }
+
+    public String longestCommonPrefix_sorting(String[] str) {
+        Arrays.sort(str);
+        String min = str[0];
+        String max = str[str.length - 1];
+        StringBuilder prefix = new StringBuilder();
+        for (int i = 0; i < min.length(); i++) {
+            if (min.charAt(i) != max.charAt(i))
+                return prefix.toString();
+            prefix.append(min.charAt(i));
+        }
+        return prefix.toString();
     }
 }
