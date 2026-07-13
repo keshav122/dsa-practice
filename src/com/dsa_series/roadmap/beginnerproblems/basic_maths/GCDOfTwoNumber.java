@@ -8,7 +8,7 @@ public class GCDOfTwoNumber {
         return GCD(n2, n1 % n2);
     }
 
-    public int GCD_1(int n1, int n2) {
+    public int GCD_BF(int n1, int n2) {
         int gcd = 1;
         int minValue = Math.min(n1, n2);
         for (int i = 1; i <= minValue; i++) {
@@ -17,6 +17,27 @@ public class GCDOfTwoNumber {
             }
         }
         return gcd;
+    }
+
+    public int GCD_Better(int n1, int n2) {
+        int gcd = 1;
+        for (int i = Math.min(n1, n2); i >= 1; i--) {
+            if (n1 % i == 0 && n2 % i == 0) {
+                return i;
+            }
+        }
+        return gcd;
+    }
+
+    public int GCD_optimal(int n1, int n2) {
+        while (n1 > 0 && n2 > 0) {
+            if (n1 > n2) {
+                n1 = n1 % n2;
+            } else {
+                n2 = n2 % n1;
+            }
+        }
+        return (n1 == 0) ? n2 : n1;
     }
 
     public static void main(String[] args) {
