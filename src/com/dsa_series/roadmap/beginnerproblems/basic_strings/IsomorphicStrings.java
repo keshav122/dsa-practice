@@ -38,6 +38,36 @@ public class IsomorphicStrings {
         return true;
     }
 
+    public boolean isomorphicString_better(String s, String t) {
+        Map<Character, Character> map = new HashMap<>();
+        Map<Character, Character> revMap = new HashMap<>();
+        for (int i = 0; i < s.length(); i++) {
+            char ch = s.charAt(i);
+            char ch1 = t.charAt(i);
+            if ((map.containsKey(ch) && map.get(ch) != ch1) || (revMap.containsKey(ch1) && revMap.get(ch1) != ch))
+                return false;
+            else {
+                map.put(ch, ch1);
+                revMap.put(ch1, ch);
+            }
+        }
+        return true;
+    }
+
+    public boolean isomorphicString_optimal(String s, String t) {
+        // Arrays to store last seen positions of characters in string s and t
+        int[] m1 = new int[256];
+        int[] m2 = new int[256];
+
+        for (int i = 0; i < s.length(); i++) {
+            if (m1[s.charAt(i)] != m2[t.charAt(i)])
+                return false;
+            m1[s.charAt(i)] = i + 1;
+            m2[t.charAt(i)] = i + 1;
+        }
+        return true;
+    }
+
     public static void main(String[] args) {
         String s = "egg";
         String t = "abd";

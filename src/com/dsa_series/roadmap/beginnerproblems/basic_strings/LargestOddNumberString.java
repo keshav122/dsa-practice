@@ -1,5 +1,7 @@
 package com.dsa_series.roadmap.beginnerproblems.basic_strings;
 
+import java.util.Set;
+
 public class LargestOddNumberString {
 
     public String largeOddNum(String s) {
@@ -24,5 +26,36 @@ public class LargestOddNumberString {
             j++;
         }
         return s.substring(startIndex, endIndex + 1);
+    }
+
+    public String largeOddNum_1(String s) {
+        int n = s.length();
+        int sIndex = 0, eIndex = n - 1;
+        Set<Character> odd = Set.of('1', '3', '5', '7', '9');
+        while (sIndex < n && s.charAt(sIndex) == '0') {
+            sIndex++;
+        }
+
+        while (eIndex >= 0 && !odd.contains(s.charAt(eIndex))) {
+            eIndex--;
+        }
+        if (sIndex > eIndex)
+            return "";
+        return s.substring(sIndex, eIndex + 1);
+    }
+
+    public String largeOddNum_1_better(String s) {
+        int n = s.length();
+        int sIndex = 0, eIndex = n - 1;
+        while (sIndex < n && s.charAt(sIndex) == '0') {
+            sIndex++;
+        }
+
+        while (eIndex >= 0 && (s.charAt(eIndex) - '0') % 2 == 0) {
+            eIndex--;
+        }
+        if (sIndex > eIndex)
+            return "";
+        return s.substring(sIndex, eIndex + 1);
     }
 }
