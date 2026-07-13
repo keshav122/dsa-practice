@@ -5,6 +5,37 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class SecondHighestOccuringElem {
+
+    public int secondMostFrequentElement_optimal(int[] nums) {
+        int maxFreq = 0, secondMaxFreq = 0;
+        int maxEle = -1, secEle = -1;
+
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int num : nums) {
+            map.put(num, map.getOrDefault(num, 0) + 1);
+        }
+
+        for (Map.Entry<Integer, Integer> it : map.entrySet()) {
+            int ele = it.getKey();
+            int freq = it.getValue();
+
+            if (freq > maxFreq) {
+                secondMaxFreq = maxFreq;
+                maxFreq = freq;
+                secEle = maxEle;
+                maxEle = ele;
+            } else if (freq == maxFreq) {
+                maxEle = Math.min(ele, maxEle);
+            } else if (freq > secondMaxFreq) {
+                secondMaxFreq = freq;
+                secEle = ele;
+            } else if (freq == secondMaxFreq) {
+                secEle = Math.min(ele, secEle);
+            }
+        }
+        return secEle;
+    }
+
     public int secondMostFrequentElement(int[] nums) {
         // This map stores the frequency of the elements in the array
         Map<Integer, Integer> freqMap = new HashMap<>();

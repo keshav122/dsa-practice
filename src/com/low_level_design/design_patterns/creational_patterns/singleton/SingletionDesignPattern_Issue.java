@@ -1,6 +1,6 @@
 package com.low_level_design.design_patterns.creational_patterns.singleton;
 
-class JudgeAnalytics {
+class JudgeAnalyticsPb {
     private int run = 0;
     private int submit = 0;
 
@@ -24,7 +24,7 @@ class JudgeAnalytics {
 public class SingletionDesignPattern_Issue {
 
     public static void main(String[] args) {
-        JudgeAnalytics judgeAnalytics = new JudgeAnalytics();
+        JudgeAnalyticsPb judgeAnalytics = new JudgeAnalyticsPb();
         // Whenever there is a run
         judgeAnalytics.countRun();
         // Whenever there is a submission
@@ -32,7 +32,7 @@ public class SingletionDesignPattern_Issue {
 
         // This however will not store the run and submit count on a global
         // level as this is new object createds
-        JudgeAnalytics judgeAnalytics2 = new JudgeAnalytics();
+        JudgeAnalyticsPb judgeAnalytics2 = new JudgeAnalyticsPb();
         judgeAnalytics2.countRun();
         judgeAnalytics2.countSubmit();
 
