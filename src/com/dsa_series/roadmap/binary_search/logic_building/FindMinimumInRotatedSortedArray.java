@@ -22,4 +22,18 @@ public class FindMinimumInRotatedSortedArray {
         }
         return min;
     }
+
+    public int findMin_better(ArrayList<Integer> arr) {
+      int n = arr.size();
+      int low = 0, high = n-1;
+      while(low < high){
+        int mid = low + ((high - low) >> 1);
+        if(arr.get(mid) <= arr.get(high)){
+            high = mid; //mid remains a candidate
+        }else{
+            low = mid + 1;
+        }
+      }
+      return arr.get(low);
+    }
 }

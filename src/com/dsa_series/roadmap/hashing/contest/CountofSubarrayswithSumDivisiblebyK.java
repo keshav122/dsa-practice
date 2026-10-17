@@ -43,4 +43,20 @@ public class CountofSubarrayswithSumDivisiblebyK {
         }
         return count;
     }
+
+    public int subarraySumDivisbleByKOptimal(int[] nums, int k) {
+        int n = nums.length;
+        int prefixSum = 0, count = 0;
+        Map<Integer, Integer> map = new HashMap<>();
+        map.put(0, 1);
+        for (int i = 0; i < n; i++) {
+            prefixSum += nums[i];
+            int mod = ((prefixSum % k) + k) % k;// to handle negative reminders as well
+            if (map.containsKey(mod)) {
+                count += map.get(mod);
+            }
+            map.put(mod, map.getOrDefault(map, 0) + 1);
+        }
+        return count;
+    }
 }
