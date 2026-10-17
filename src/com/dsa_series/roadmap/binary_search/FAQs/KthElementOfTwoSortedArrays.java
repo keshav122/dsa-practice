@@ -1,3 +1,4 @@
+/*Author: keshav122 */
 package com.dsa_series.roadmap.binary_search.FAQs;
 
 import java.util.Arrays;
